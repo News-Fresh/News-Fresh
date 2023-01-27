@@ -1,56 +1,74 @@
 import React from "react";
+import styled from 'styled-components';
 import Icon from "../icons/logo.png"
 
+const Search = styled.input`
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 10px 20px;
+gap: 8px;
+
+position: absolute;
+width: 40%;
+height: 30px;
+right: 50px;
+top: 80px;
+
+background: #CDE3B2;
+border-radius: 22px;
+border : none;
+@media screen and (max-width : 1210px){
+    left:170px;
+    top: 150px;
+    width: 65%;
+@media screen and (max-width : 600px){
+    left:20%;
+    top: 150px;
+    width: 60%;
+}
+`
+const LogoIcon = styled.img`
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    left: 530px;
+    top: 40px;
+    @media screen and (max-width: 600px){
+    left:45%
+    }
+`
+const LogoName = styled.a`
+    position: absolute;
+    height: 115px;
+    left: 180px;
+    right: 67.08%;
+    top: 50px;
+
+    font-family: 'Piazzolla';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 70px;
+    line-height: 99px;
+    letter-spacing: -1.13533px;
+
+    color: #83A558;
+    text-decoration:none;
+    
+@media screen and (max-width : 600px){
+    display:none;
+}
+`
+
 export default function Logo() {
-    const logoName = {
-        position: 'absolute',
-        height: '115px',
-        left: '280px',
-        //right: '50%',
-        top: '40px',
 
-        fontFamily: 'Piazzolla',
-        fontStyle: 'normal',
-        fontWeight: '700',
-        fontSize: '70px',
-        lineHeight: '99px',
-        letterSpacing: '-1.13533px',
-        color: '#83A558',
-        textDecoration:'none'
-    }
-
-    const icon = {
-        position: 'absolute',
-        width: '100px',
-        height: '100px',
-        left: '170px',
-        top: '30px',
-
-    }
-    const search = {
-        border : 'none',
-        display: 'flex',
-        flexDirection: 'row',
-        alignItems: 'center',
-        padding: '10px 20px',
-        gap: '8px',
-
-        position: 'absolute',
-        width: '600px', //*
-        height: '30px', //*
-        left: '765px',
-        top: '65px', //*
-
-        background: '#CDE3B2',
-        borderRadius: '22px',
-    }
     return(
     <>
-        <img src={Icon} style={icon} alt="logo" />
-        <a style={logoName} href="">
+        <LogoIcon src={Icon} alt="logo" />
+        <LogoName href="">
             NewsFresh
-        </a>
-        <input style={search} type="text" placeholder="Search..." />
+        </LogoName>
+        <Search type="text" placeholder="Search..." />
     </>
     )
 }
