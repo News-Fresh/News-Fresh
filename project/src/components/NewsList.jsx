@@ -1,14 +1,18 @@
-import React, { useEffect, useState } from "react";
-import styled from "styled-components";
-import NewsItem from "./NewsItem";
-import axios from "axios";
+import React, { useEffect, useState } from 'react';
+import styled from 'styled-components';
+import NewsItem from './NewsItem';
+import axios from 'axios';
 
 const NewsItemBlock = styled.div`
+  position: relative;
+  top: 10%;
   box-sizing: border-box;
   padding-bottom: 3rem;
-  width: 768px;
+  width: 70rem;
   margin: 0 auto;
   margin-top: 2rem;
+  /* justify-content: center;
+  display: block; */
   @media screen and (max-width: 768px) {
     width: 100%;
     padding-left: 1rem;
@@ -28,9 +32,9 @@ const NewsList = ({ category }) => {
       // try catch문 에러 처리
       try {
         // props로 넘어온 state로
-        const query = category === "all" ? "" : `&category=${category}`;
+        const query = category === 'all' ? '' : `&category=${category}`;
         const response = await axios.get(
-          `https://newsapi.org/v2/top-headlines?country=kr${query}&apiKey=afda249a1ccb482fa0944d12a295021b`
+          `https://newsapi.org/v2/top-headlines?country=kr${query}&apiKey=aa6dae99785d48dfa798e3c8b62dd365`
         );
         // API 데이터 state 저장
         setArticles(response.data.articles);
