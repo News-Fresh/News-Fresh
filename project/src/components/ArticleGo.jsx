@@ -1,8 +1,8 @@
-import React from "react";
-import Icon from "../icons/logo.png";
-import styled from "styled-components";
+import React from 'react';
+import Icon from '../icons/logo.png';
+import styled from 'styled-components';
 
-export default function ArticleGo({}) {
+export default function ArticleGo() {
   const MyDiv = styled.div`
     background-color: #e6ecf2;
     position: absolute;
@@ -21,11 +21,11 @@ export default function ArticleGo({}) {
       top: 35%;
       width: 200px;
     }
-    @media screen and (max-width: 600px) {
+    @media screen and (max-width: 768px) {
       position: absolute;
-      left: 40%;
-      top: 33%;
-      width: 25%;
+      left: 45%;
+      top: 20%;
+      width: 22%;
       height: 10%;
     }
   `;
@@ -36,7 +36,7 @@ export default function ArticleGo({}) {
     top: 1rem;
     width: 3rem;
     height: 3rem;
-    @media screen and (max-width: 600px) {
+    @media screen and (max-width: 768px) {
       position: absolute;
       top: 20%;
       left: 15%;
@@ -53,7 +53,7 @@ export default function ArticleGo({}) {
     font-size: 1.2rem;
     font-family: sans-serif;
     color: #808191;
-    @media screen and (max-width: 600px) {
+    @media screen and (max-width: 768px) {
       position: absolute;
       left: 40%;
       top: 20%;
@@ -67,12 +67,12 @@ export default function ArticleGo({}) {
     left: 2.25rem;
     font-weight: bold;
     font-size: 1.75rem;
-    font-family: "Nanum Myeongjo";
+    font-family: 'Nanum Myeongjo';
     color: #11142d;
-    @media screen and (max-width: 600px) {
+    @media screen and (max-width: 768px) {
       position: absolute;
       left: 15%;
-      top: 50%;
+      top: 55%;
       font-size: 1.25rem;
     }
   `;

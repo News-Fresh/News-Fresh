@@ -1,27 +1,34 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
 
 const NewsItemBlock = styled.div`
   display: flex;
   .thumbnail {
     img {
       margin-right: 1rem;
-      width: 160px;
-      height: 160px;
+      width: 100px;
+      height: 100px;
       object-fit: cover;
+      border-radius: 10%;
     }
   }
   .contents {
     h2 {
       margin: 0;
+      font-size: 1.25rem;
       a {
-        color: block;
+        /* color: block; */
+        color: #47661f;
+      }
+      a:hover {
+        color: #79984e;
       }
     }
     p {
       margin: 0;
       line-height: 1.5;
       margin-top: 0.5rem;
+      font-size: 1.25rem;
       white-space: normal;
     }
   }
