@@ -1,6 +1,6 @@
 import React from "react";
-import Categories from "../Categories";
-import NewsList from "../NewsList";
+import Categories from "../components/Categories";
+import NewsList from "../components/NewsList";
 import { useParams } from "react-router-dom";
 
 //useParams으로 링크의 URL 파라미터를 이용할 것임

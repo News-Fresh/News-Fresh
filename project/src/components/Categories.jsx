@@ -1,51 +1,53 @@
-import React from 'react';
-import styled, { css } from 'styled-components';
+import React from "react";
+import styled, { css } from "styled-components";
 
 // 카테고리 배열생성
 const categories = [
   {
-    name: 'all',
-    text: '전체보기',
+    name: "all",
+    text: "전체보기",
   },
   {
-    name: 'business',
-    text: '비즈니스',
+    name: "business",
+    text: "비즈니스",
   },
   {
-    name: 'science',
-    text: '과학',
+    name: "science",
+    text: "과학",
   },
   {
-    name: 'entertainment',
-    text: '연예',
+    name: "entertainment",
+    text: "연예",
   },
   {
-    name: 'sports',
-    text: '스포츠',
+    name: "sports",
+    text: "스포츠",
   },
   {
-    name: 'health',
-    text: '건강',
+    name: "health",
+    text: "건강",
   },
   {
-    name: 'technology',
-    text: '기술',
+    name: "technology",
+    text: "기술",
   },
 ];
 
 const CategoriesBlock = styled.div`
   position: relative;
   top: 8%;
-  left: 5%;
+  left: 15%;
   display: flex;
   padding: 1rem;
   width: 768px;
   margin: 0 auto;
   @media screen and (max-width: 768px) {
-    position: relative;
-    top: 60%;
-    width: 100%;
-    overflow-x: auto;
+    display: none;
+    /* position: relative;
+    margin: 0;
+    top: 2rem;
+    left: 0%;
+    /* overflow-x: auto; */
   }
 `;
 
@@ -64,7 +66,7 @@ const Category = styled.div`
   ${(props) =>
     props.active &&
     css`
-            font-weight: 600;
+            font-weight: 800;
             border-bottom: 2px solid #22b8cf;
             color; #22b8cf;
             &:hover {
