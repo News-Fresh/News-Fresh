@@ -1,5 +1,11 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Piazzolla:opsz,wght@8..30,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap");
 .App {
   text-align: center;
+  font-family: "Piazzolla", serif;
+  font-family: "Nanum Myeongjo", serif;
+  font-family: "Nanum Pen Script", cursive;
 }
 
 .App-logo {
