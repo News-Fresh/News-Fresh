@@ -13,6 +13,8 @@ export default function ArticleGo({}) {
     border-radius: 10%;
     width: 12rem;
     height: 8.5rem;
+    cursor: pointer;
+
     @media screen and (max-width: 1210px) {
       position: absolute;
       left: 40%;
