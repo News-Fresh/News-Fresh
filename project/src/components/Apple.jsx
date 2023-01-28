@@ -2,13 +2,13 @@ import React from "react";
 import Icon from "../icons/logo.png";
 import styled from "styled-components";
 
-export default function ArticleMarket({}) {
+export default function Apple({}) {
   const MyDiv = styled.div`
     background-color: #e6ecf2;
     position: absolute;
     margin: auto;
     padding: auto;
-    left: 82%;
+    left: 67%;
     top: 24%;
     border-radius: 10%;
     width: 12rem;
@@ -17,13 +17,13 @@ export default function ArticleMarket({}) {
 
     @media screen and (max-width: 1210px) {
       position: absolute;
-      left: 60%;
+      left: 40%;
       top: 35%;
       width: 200px;
     }
     @media screen and (max-width: 600px) {
       position: absolute;
-      left: 70%;
+      left: 40%;
       top: 33%;
       width: 25%;
       height: 10%;
@@ -81,7 +81,7 @@ export default function ArticleMarket({}) {
       <MyDiv>
         <MyImg src={Icon} alt="icon" />
         <MyA>Keyword</MyA>
-        <Keyword>마케팅</Keyword>
+        <Keyword>공무원</Keyword>
       </MyDiv>
     </>
   );
