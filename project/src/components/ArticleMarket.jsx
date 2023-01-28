@@ -1,6 +1,6 @@
-import React from 'react';
-import Icon from '../icons/logo.png';
-import styled from 'styled-components';
+import React from "react";
+import Icon from "../icons/logo.png";
+import styled from "styled-components";
 
 export default function ArticleMarket({}) {
   const MyDiv = styled.div`
@@ -9,7 +9,7 @@ export default function ArticleMarket({}) {
     margin: auto;
     padding: auto;
     left: 82%;
-    top: 24%;
+    top: 11rem;
     border-radius: 10%;
     width: 12rem;
     height: 8.5rem;
@@ -18,15 +18,15 @@ export default function ArticleMarket({}) {
     @media screen and (max-width: 1210px) {
       position: absolute;
       left: 60%;
-      top: 35%;
+      top: 15rem;
       width: 200px;
     }
     @media screen and (max-width: 768px) {
       position: absolute;
       left: 70%;
-      top: 20%;
-      width: 25%;
-      height: 10%;
+      top: 13.5rem;
+      width: 5.5rem;
+      height: 4.5rem;
     }
   `;
   const MyImg = styled.img`
@@ -67,7 +67,7 @@ export default function ArticleMarket({}) {
     left: 2.25rem;
     font-weight: bold;
     font-size: 1.75rem;
-    font-family: 'Nanum Myeongjo';
+    font-family: "Nanum Myeongjo";
     color: #11142d;
     @media screen and (max-width: 768px) {
       position: absolute;

@@ -1,14 +1,14 @@
-import './App.css';
-import ArticleGo from './components/ArticleGo';
-import ArticleIT from './components/ArticleIT';
-import ArticleMarket from './components/ArticleMarket';
-import Logo from './components/Logo';
-import Menubar from './components/Menubar';
+import "./App.css";
+import ArticleGo from "./components/ArticleGo";
+import ArticleIT from "./components/ArticleIT";
+import ArticleMarket from "./components/ArticleMarket";
+import Logo from "./components/Logo";
+import Menubar from "./components/Menubar";
 // import axios from "axios";
 
-import { Route, Routes } from 'react-router-dom';
-import NewsPage from './components/Pages/NewsPage';
-import MainNews from './components/MainNews';
+import { Route, Routes } from "react-router-dom";
+import NewsPage from "./Pages/NewsPage";
+import MainNews from "./components/MainNews";
 
 function App() {
   // API를 넘겨받을 state 선언

@@ -1,20 +1,24 @@
-import React, { useEffect, useState } from 'react';
-import styled from 'styled-components';
-import NewsItem from './NewsItem';
-import axios from 'axios';
+import React, { useEffect, useState } from "react";
+import styled from "styled-components";
+import NewsItem from "./NewsItem";
+import axios from "axios";
 
 const NewsItemBlock = styled.div`
   position: relative;
   top: 10%;
+  /* left: 2%; */
   box-sizing: border-box;
   padding-bottom: 3rem;
-  width: 70rem;
+  width: 80%;
   margin: 0 auto;
   margin-top: 2rem;
   /* justify-content: center;
   display: block; */
   @media screen and (max-width: 768px) {
+    position: relative;
+    top: 5%;
     width: 100%;
+    /* height: 20%; */
     padding-left: 1rem;
     padding-right: 1rem;
   }
@@ -32,7 +36,7 @@ const NewsList = ({ category }) => {
       // try catch문 에러 처리
       try {
         // props로 넘어온 state로
-        const query = category === 'all' ? '' : `&category=${category}`;
+        const query = category === "all" ? "" : `&category=${category}`;
         const response = await axios.get(
           `https://newsapi.org/v2/top-headlines?country=kr${query}&apiKey=aa6dae99785d48dfa798e3c8b62dd365`
         );
@@ -48,7 +52,7 @@ const NewsList = ({ category }) => {
 
   // 대기 중
   if (loading) {
-    return <NewsItemBlock>대기 중입니다...</NewsItemBlock>;
+    return <NewsItemBlock>대기중입니다...</NewsItemBlock>;
   }
   // articles 값이 설정 안될경우 (null 오류방지)
   if (!articles) {

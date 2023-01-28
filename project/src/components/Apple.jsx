@@ -18,7 +18,7 @@ export default function Apple({}) {
     @media screen and (max-width: 1210px) {
       position: absolute;
       left: 40%;
-      top: 35%;
+      top: 15rem;
       width: 200px;
     }
     @media screen and (max-width: 600px) {
