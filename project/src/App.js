@@ -4,6 +4,7 @@ import ArticleIT from "./components/ArticleIT";
 import ArticleMarket from "./components/ArticleMarket";
 import Logo from "./components/Logo";
 import Menubar from "./components/Menubar";
+import Weather from "./components/Weather";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       <ArticleIT />
       <ArticleGo />
       <ArticleMarket />
+      <Weather />
     </div>
   );
 }

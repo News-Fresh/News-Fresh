@@ -21,7 +21,7 @@ const Search = styled.input`
   @media screen and (max-width: 1210px) {
     left: 170px;
     top: 150px;
-    width: 65%;
+    width: 55%;
   }
   @media screen and (max-width: 600px) {
     left: 20%;
