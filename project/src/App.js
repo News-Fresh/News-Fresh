@@ -11,6 +11,8 @@ import { useCallback, useState } from "react";
 import MainNews from "./components/MainNews";
 import styled from "styled-components";
 import NewsList from "./components/NewsList";
+import Paging from "./components/Paging";
+import ArticleIT from "./components/ArticleIT";
 
 function App() {
   const [category, setCategory] = useState("all");
@@ -49,6 +51,7 @@ function App() {
   `;
   return (
     <div className="App">
+      {/* <MainNews /> */}
       <Categories category={category} onSelect={onSelect} />
       <NewsDiv>
         <NewsList category={category} />

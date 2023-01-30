@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled, { css } from "styled-components";
 
 // 카테고리 배열 _ 여기 다 가능, 골라서 가져오기
@@ -35,11 +35,12 @@ import styled, { css } from "styled-components";
 const categories = [
   {
     name: "technology",
-    text: "🛸IT",
+    img: "     ❇️    ",
+    text: "🛸TECH",
   },
   {
     name: "business",
-    text: "🌐기업",
+    text: "🌐비즈니스",
   },
   {
     name: "science",
@@ -52,10 +53,22 @@ const categories = [
 ];
 const CategoriesBlock = styled.div`
   display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  /* flex-basis: 15px;
+  flex-grow: 2; */
+  justify-content: middle;
+  align-items: middle;
+  flex-wrap: nowrap;
   /* padding: 1rem;
   width: 768px; */
-  margin: 0 auto;
+  /* margin: 0 auto;
+  padding: auto; */
+  /* position: absolute;
+  top: 0rem;
+  left: 0rem; */
   @media screen and (max-width: 768px) {
+    display: flex;
     position: absolute;
     /* left: 15%;
     top: 13.5rem; */
@@ -68,8 +81,14 @@ const CategoriesBlock = styled.div`
 
 const Category = styled.div`
   font-size: 1.125rem;
-  position: relative;
   display: flex;
+  /* flex-direction: row; */
+  /* align-self: center;
+  /* flex: 1; */
+  justify-content: middle;
+  align-items: middle;
+  flex-wrap: wrap;
+  position: relative;
   top: 10rem;
   left: 50rem;
   cursor: pointer;
@@ -127,6 +146,7 @@ const Categories = ({ onSelect, category }) => {
           active={category === v.name}
           onClick={() => onSelect(v.name)}
         >
+          {/* {v.img} <br /> */}
           {v.text}
         </Category>
       ))}
