@@ -33,67 +33,62 @@ import styled, { css } from "styled-components";
 //   },
 // ];
 const categories = [
+  // {
+  //   name: "all",
+  //   text: "한 눈에 보는 뉴스",
+  // },
   {
     name: "technology",
-    text: "🛸IT",
+    text: "IT",
   },
   {
     name: "business",
-    text: "🌐기업",
+    text: "기업",
   },
   {
     name: "science",
-    text: "🚀사이언스",
+    text: "사이언스",
   },
   {
     name: "entertainment",
-    text: "🌟FUN",
+    text: "연예",
   },
+  // {
+  //   name: "sports",
+  //   text: "스포츠",
+  // },
+  // {
+  //   name: "health",
+  //   text: "건강",
+  // },
 ];
 const CategoriesBlock = styled.div`
+  position: relative;
+  top: 8%;
+  left: 12%;
   display: flex;
-  /* padding: 1rem;
-  width: 768px; */
+  padding: 1rem;
+  width: 768px;
   margin: 0 auto;
   @media screen and (max-width: 768px) {
-    position: absolute;
-    /* left: 15%;
-    top: 13.5rem; */
-    top: 4rem;
-    left: 0rem;
-    width: 4.25rem;
-    height: 3.2rem;
+    display: none;
+    /* position: relative;
+    margin: 0;
+    top: 2rem;
+    left: 0%;
+    /* overflow-x: auto; */
   }
 `;
 
 const Category = styled.div`
-  font-size: 1.125rem;
-  position: relative;
-  display: flex;
-  top: 10rem;
-  left: 50rem;
+  font-size: 1.25rem;
+  font-family: "Nanum Myeongjo";
   cursor: pointer;
   white-space: pre;
   text-decoration: none;
   color: inherit;
-  width: 8.5rem;
-  height: 6.5rem;
-  border-radius: 10%;
-  font-family: "Nanum Myeongjo";
-  font-size: 1.5rem;
-  font-weight: bold;
-  justify-content: center;
-  align-items: center;
-  background-color: #e6ecf2;
-  @media screen and (max-width: 768px) {
-    position: absolute;
-    padding: 0;
-    margin: 0;
-    left: 10rem;
-    top: 13.5rem;
-    width: 4.25rem;
-    height: 3.2rem;
-  }
+  padding-bottom: 0.25rem;
+
   &:hover {
     color: #495057;
   }
@@ -101,13 +96,13 @@ const Category = styled.div`
   ${(props) =>
     props.active &&
     css`
-              font-weight: 800;
-              border-bottom: 2px solid #1fd072;
-              color; #1fd072;
-              &:hover {
-                  color: #1fd072;
-              }
-          `}
+            font-weight: 800;
+            border-bottom: 2px solid #1fd072;
+            color; #1fd072;
+            &:hover {
+                color: #1fd072;
+            }
+        `}
 
   & + & {
     margin-left: 1rem;
@@ -117,7 +112,6 @@ const Category = styled.div`
 const Categories = ({ onSelect, category }) => {
   return (
     <CategoriesBlock>
-      {/* 블록은 리스트, 블록에 키워드 하나씩 */}
       {/* map 메서드로 각 카테고리들(NavLink)을 생성 */}
       {categories.map((v) => (
         <Category

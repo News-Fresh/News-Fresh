@@ -42,6 +42,7 @@ const NewsList = ({ category }) => {
         );
         // API 데이터 state 저장
         setArticles(response.data.articles);
+        console.log(response);
       } catch (e) {
         console.log(e);
       }

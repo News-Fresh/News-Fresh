@@ -8,11 +8,11 @@ export default function ArticleGo() {
     position: absolute;
     margin: auto;
     padding: auto;
-    left: 67%;
+    left: 76%;
     top: 11rem;
     border-radius: 10%;
-    width: 12rem;
-    height: 8.5rem;
+    width: 9rem;
+    height: 6.5rem;
     cursor: pointer;
 
     @media screen and (max-width: 1210px) {
@@ -23,57 +23,57 @@ export default function ArticleGo() {
     }
     @media screen and (max-width: 768px) {
       position: absolute;
-      left: 45%;
+      left: 55%;
       top: 13.5rem;
-      width: 5.5rem;
-      height: 4.5rem;
+      width: 4.25rem;
+      height: 3.2rem;
     }
   `;
   const MyImg = styled.img`
     position: absolute;
     margin: auto;
-    left: 1.5rem;
+    left: 0.75rem;
     top: 1rem;
-    width: 3rem;
-    height: 3rem;
+    width: 2rem;
+    height: 2rem;
     @media screen and (max-width: 768px) {
       position: absolute;
       top: 20%;
       left: 15%;
-      width: 20%;
-      height: 25%;
+      width: 15%;
+      height: 20%;
     }
   `;
   const MyA = styled.a`
     position: absolute;
     margin: auto;
-    top: 1.75rem;
-    left: 5rem;
+    top: 1.25rem;
+    left: 3.25rem;
     font-weight: inherit;
-    font-size: 1.2rem;
+    font-size: 1rem;
     font-family: sans-serif;
     color: #808191;
     @media screen and (max-width: 768px) {
       position: absolute;
-      left: 40%;
-      top: 20%;
-      font-size: 0.25rem;
+      left: 35%;
+      top: 15%;
+      font-size: 0.15rem;
     }
   `;
   const Keyword = styled.a`
     position: absolute;
     margin: auto;
-    top: 5rem;
-    left: 2.25rem;
+    top: 3.8rem;
+    left: 1.75rem;
     font-weight: bold;
-    font-size: 1.75rem;
+    font-size: 1.5rem;
     font-family: "Nanum Myeongjo";
     color: #11142d;
     @media screen and (max-width: 768px) {
       position: absolute;
       left: 15%;
       top: 55%;
-      font-size: 1.25rem;
+      font-size: 1rem;
     }
   `;
   return (
@@ -81,7 +81,7 @@ export default function ArticleGo() {
       <MyDiv>
         <MyImg src={Icon} alt="icon" />
         <MyA>Keyword</MyA>
-        <Keyword>공무원</Keyword>
+        <Keyword>사이언스</Keyword>
       </MyDiv>
     </>
   );
