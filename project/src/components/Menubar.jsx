@@ -20,12 +20,13 @@ const Menu = styled.div`
     }
     `
 const BarStyle = styled.label`
-    position: absolute;
+    position: fixed;
     width: 36.33px;
     height: 28.37px;
-    left: 35px;
+    left: 50px;
     top: 88px;
     cursor : pointer;
+    z-index: 2;
     @media screen and (max-width: 1210px) {
         left: 0px;
     }

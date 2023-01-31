@@ -7,10 +7,10 @@ import clear from "../icons/clear.png";
 
 const ForecastBox = styled.div`
 position: absolute;
-width: 85%;
+width: 80%;
 height: 250px;
 top: 55%;
-left : 6%;
+left : 5%;
 padding : 8px;
 margin:10px;
 /* Color/White/WHITE */
@@ -20,14 +20,14 @@ background: linear-gradient(45deg, #9DCFFF, #3DB7CC);
   left: 5%;
 }
 @media screen and (max-width: 768px) {
-  left: 1%;
+  left: 3%;
 }
 `
 const Box1 = styled.div`
 position: absolute;
 width: 25%;
 height: 200px;
-top: 2%;
+top: 8%;
 left : 6%;
 margin:10px;
 /* Color/White/WHITE */
@@ -37,7 +37,7 @@ background: linear-gradient(45deg, #008299, #3DB7CC);
   left: 2%;
 }
 @media screen and (max-width: 768px) {
-  left: 1%;
+  left: 3%;
 }
 `
 
@@ -45,7 +45,7 @@ const Box2 = styled.div`
 position: absolute;
 width: 25%;
 height: 200px;
-top: ; 2%;
+top: 8%;
 left : 37%;
 margin : 10px;
 /* Color/White/WHITE */
@@ -55,7 +55,7 @@ background: linear-gradient(45deg, #008299, #3DB7CC);
   left: 35%;
 }
 @media screen and (max-width: 768px) {
-  left: 32%;
+  left: 35%;
 }
 `
 
@@ -63,7 +63,7 @@ const Box3 = styled.div`
 position: absolute;
 width: 25%;
 height: 200px;
-top: 2%;
+top: 8%;
 left : 68%;
 margin:10px;
 /* Color/White/WHITE */
@@ -73,7 +73,7 @@ background: linear-gradient(45deg, #008299, #3DB7CC);
   left: 68%;
 }
 @media screen and (max-width: 768px) {
-  left: 63%;
+  left: 65%;
 }
 `
 const Date = styled.p`
@@ -94,14 +94,14 @@ text-align:center;
 font-family: 'Poppins';
 font-style: normal;
 font-weight: 600;
-font-size: 10px;
-line-height:1px;
+font-size: 20px;
+line-height:15px;
 
 letter-spacing: -0.512518px;
 color: white;
   @media screen and (max-width: 1210px) {
     font-size:15px;
-    line-height:15px;
+    line-height:15px;}
     @media screen and (max-width: 768px) {
     line-height:3px;
     font-size:10px;
@@ -112,7 +112,7 @@ text-align:center;
 font-family: 'Poppins';
 font-style: normal;
 font-weight: 700;
-font-size: 45px;
+font-size: 30px;
 line-height: 28px;
 
 color: white;
@@ -130,8 +130,8 @@ text-align:center;
 font-family: 'Poppins';
 font-style: normal;
 font-weight: 700;
-font-size: 30px;
-line-height: 20px;
+font-size: 15px;
+line-height: 40px;
 
 color: white;
 @media screen and (max-width: 1210px) {
@@ -145,9 +145,11 @@ color: white;
 `
 const Weatherimg = styled.img`
 position: absolute;
-width:50%;
-left: 25%;
-top: 55%;
+height:30%;
+width: 60%;
+left: 23%;
+justify-content: center;
+top: 120px;
 padding-top : 10px;
 `
 export default function WeatherForecast(props) {
