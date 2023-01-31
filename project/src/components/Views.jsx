@@ -1,12 +1,6 @@
-import React from 'react'
-import MainNews from './MainNews'
-import Weather from './Weather'
+import React from "react";
+import Weather from "./Weather";
 
 export default function Views(obj) {
-
-  return (
-    <>
-        
-    </>
-  )
+  return <></>;
 }

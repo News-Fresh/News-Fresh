@@ -6,13 +6,8 @@ import { Route, Routes } from "react-router-dom";
 import NewsPage from "./Pages/NewsPage";
 import Categories from "./components/Categories";
 import { useCallback, useState } from "react";
-import MainNews from "./components/MainNews";
 import styled from "styled-components";
 import NewsList from "./components/NewsList";
-import Paging from "./components/Paging";
-import ArticleIT from "./components/ArticleIT";
-import Weather from "./components/Weather";
-import WeatherForecast from "./components/WeatherForecast";
 import Views from "./components/Views";
 
 function App() {
@@ -52,24 +47,16 @@ function App() {
   `;
   return (
     <div className="App">
-      {/* <MainNews /> */}
       <Categories category={category} onSelect={onSelect} />
-      <NewsDiv>
+      <NewsList category={category} />
+
+      {/* <NewsDiv>
         <NewsList category={category} />
-      </NewsDiv>
-      {/* props로 카테고리 state와 함수를 넘겨줌 */}
-      {/* <Categories category={category} onSelect={onSelect} />
-      <NewsList category={category} /> */}
-      {/* <MainNews /> */}
-      {/* <Categories category={category} onSelect={onSelect} /> */}
+      </NewsDiv> */}
       <Menubar />
       <Logo />
       {/* <Weather /> */}
-      <Views />
-      {/* <ArticleIT />
-      <ArticleGo />
-      <ArticleMarket />
-      <ArticleCor /> */}
+      {/* <Views /> */}
       <Routes>
         <Route path="/:category?" component={NewsPage} />
       </Routes>
