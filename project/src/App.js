@@ -1,9 +1,7 @@
 import "./App.css";
-
 import Logo from "./components/Logo";
 import Menubar from "./components/Menubar";
 // import axios from "axios";
-
 import { Route, Routes } from "react-router-dom";
 import NewsPage from "./Pages/NewsPage";
 import Categories from "./components/Categories";
@@ -56,9 +54,9 @@ function App() {
     <div className="App">
       {/* <MainNews /> */}
       <Categories category={category} onSelect={onSelect} />
-      {/* <NewsDiv>
+      <NewsDiv>
         <NewsList category={category} />
-      </NewsDiv> */}
+      </NewsDiv>
       {/* props로 카테고리 state와 함수를 넘겨줌 */}
       {/* <Categories category={category} onSelect={onSelect} />
       <NewsList category={category} /> */}

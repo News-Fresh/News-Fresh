@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import NewsItem from "./NewsItem";
 import axios from "axios";
-import Pagination from "react-js-pagination";
+import Paging from "./Paging";
 
 // const [page, setPage] = useState(1);
 // const handlePageChange = (page) => {
@@ -31,62 +31,67 @@ const NewsItemBlock = styled.div`
   }
 `;
 
-const PaginationBox = styled.div`
-  .pagination {
-    display: flex;
-    justify-content: center;
-    margin-top: 15px;
+const NewsItems = styled.div`
+  display: flex;
+  .thumbnail {
+    img {
+      margin-right: 1rem;
+      width: 100px;
+      height: 100px;
+      object-fit: cover;
+      border-radius: 10%;
+    }
   }
-  ul {
-    list-style: none;
-    padding: 0;
+  .contents {
+    h2 {
+      margin: 0;
+      font-size: 1.25rem;
+      a {
+        /* color: block; */
+        color: #47661f;
+      }
+      a:hover {
+        color: #79984e;
+      }
+    }
+    p {
+      margin: 0;
+      line-height: 1.5;
+      margin-top: 0.5rem;
+      font-size: 1.25rem;
+      white-space: normal;
+    }
   }
-  ul.pagination li {
-    display: inline-block;
-    width: 30px;
-    height: 30px;
-    border: 1px solid #e2e2e2;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 1rem;
-  }
-  ul.pagination li:first-child {
-    border-radius: 5px 0 0 5px;
-  }
-  ul.pagination li:last-child {
-    border-radius: 0 5px 5px 0;
-  }
-  ul.pagination li a {
-    text-decoration: none;
-    color: #337ab7;
-    font-size: 1rem;
-  }
-  ul.pagination li.active a {
-    color: white;
-  }
-  ul.pagination li.active {
-    background-color: #337ab7;
-  }
-  ul.pagination li a:hover,
-  ul.pagination li a.active {
-    color: blue;
+  & + & {
+    margin-top: 3rem;
   }
 `;
 
 const NewsList = ({ category }) => {
-  const [articles, setArticles] = useState(null);
+  const [items, setItems] = useState([]); //리스트에 나타낼 아이템
+  const [count, setCount] = useState(0); //아이템 총 개수
+  const [currentpage, setCurrentpage] = useState(1); //현재페이지
+  const [postPerPage] = useState(2); //페이지당 아이템 개수
+
+  const [indexOfLastPost, setIndexOfLastPost] = useState(0); // 마지막 포스트
+  const [indexOfFirstPost, setIndexOfFirstPost] = useState(0); // 처음 포스트
+  const [currentPosts, setCurrentPosts] = useState(0); // 현재
+
+  const [articles, setArticles] = useState(null); //api용
   const [loading, setLoading] = useState(null);
 
-  // <PaginationBox>
-  //   <Pagination
-  //     activePage={page}
-  //     itemsCountPerPage={items}
-  //     totalItemsCount={data.length - 1}
-  //     pageRangeDisplayed={5}
-  //     onChange={handlePageChange}
-  //   ></Pagination>
-  // </PaginationBox>;
+  //items호출
+
+  // React.useEffect((articles) => { // 우리가 쓸 data 담기
+  //   setCount(articles.length);
+  //   setIndexOfLastPost(currentpage * postPerPage);
+  //   setIndexOfFirstPost(indexOfLastPost - postPerPage);
+  //   setCurrentPosts(articles.slice(indexOfFirstPost, indexOfLastPost));
+  // }, [currentpage, indexOfFirstPost, indexOfLastPost, items, postPerPage]);
+
+  // const setPage = (e) => {
+  //   setCurrentpage(e);
+  // };
 
   useEffect(() => {
     // async 비동기 함수호출
@@ -94,24 +99,37 @@ const NewsList = ({ category }) => {
       // APi 호출 시간동안 보여줄 로딩바
       setLoading(true);
       // try catch문 에러 처리
-      try {
-        // props로 넘어온 state로
-        const query = category === "all" ? "" : `&category=${category}`;
-        const response = await axios.get(
+      // try {
+      // props로 넘어온 state로
+      const query = category === "all" ? "" : `&category=${category}`;
+      axios
+        .get(
           `https://newsapi.org/v2/top-headlines?country=kr${query}&apiKey=a5ee1fb9d67341ec941a37c89cfc3283`
 
           // `https://newsapi.org/v2/top-headlines?country=kr${query}&apiKey=aa6dae99785d48dfa798e3c8b62dd365`
-        );
-        // API 데이터 state 저장
-        setArticles(response.data.articles);
-        console.log(response);
-      } catch (e) {
-        console.log(e);
-      }
+        )
+        .then((res) => {
+          // API 데이터 state 저장
+          setArticles(res.data.articles);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+      //로딩중
       setLoading(false);
+      console.log(articles?.length);
+      setCount(articles?.length);
+      setIndexOfLastPost(currentpage * postPerPage); // 마지막 페이지의 개수 (한화면에 보여줄 마지막 페이지)
+      setIndexOfFirstPost(indexOfLastPost - postPerPage); // 아이템의 첫번째 위치
+      setCurrentPosts(articles?.slice(indexOfFirstPost, indexOfLastPost)); // 아티클 배열에 있는 거를 나눠서 가져오는 거
     };
     fetchData();
-  }, [category]);
+  }, [category, currentpage, indexOfFirstPost, indexOfLastPost, postPerPage]);
+
+  //페이지 에러 처리
+  const setPage = (e) => {
+    setCurrentpage(e);
+  };
 
   // 대기 중
   if (loading) {
@@ -124,11 +142,34 @@ const NewsList = ({ category }) => {
 
   // articles 같이 유효할 떄
   return (
-    <NewsItemBlock>
+    <>
       {articles.map((v) => (
-        <NewsItem key={v.url} article={v} />
+        <NewsItems>
+          {v.urlToImage && (
+            <div className="thumbnail">
+              <a href={v.url} target="_blank" rel="noopener noreferrer">
+                <img src={v.urlToImage} alt="thumbnail" />
+              </a>
+            </div>
+          )}
+          <div className="contents">
+            <h2>
+              <a href={v.url} target="_blank" rel="noopener noreferrer">
+                {v.title}
+              </a>
+            </h2>
+            <p>{v.description}</p>
+          </div>
+        </NewsItems>
       ))}
-    </NewsItemBlock>
+      {/* <NewsItemBlock> */}
+      {/* {articles.map((v) => (
+          <NewsItem key={v.url} article={v} />
+        ))} */}
+      {/* </NewsItemBlock> */}
+
+      <Paging page={currentpage} count={count} setPage={setPage} />
+    </>
   );
 };
 
