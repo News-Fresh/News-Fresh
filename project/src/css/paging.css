@@ -1,7 +1,12 @@
 .pagination {
   display: flex;
+  position: relative;
+  top: 41rem;
+  left: 22rem;
   justify-content: center;
-  margin-top: 15px;
+  margin-top: 1rem;
+  font-family: "Nanum Myeongjo";
+  text-align: center;
 }
 
 ul {

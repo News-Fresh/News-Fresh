@@ -1,21 +1,33 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components";
 
 const NewsItemBlock = styled.div`
   display: flex;
+  /* position: fixed; */
+  font-family: "Nanum Myeongjo";
+  text-align: center;
+  padding: 1rem;
+  max-width: 90%;
+  /* flex-wrap: nowrap; */
+  /* justify-content: space-between; */
+
+  /* min-width: 45%; */
+  max-height: 70%;
+  /* min-height: 55%; */
   .thumbnail {
     img {
       margin-right: 1rem;
-      width: 100px;
-      height: 100px;
+      width: 7rem;
+      height: 6rem;
       object-fit: cover;
-      border-radius: 10%;
+      border-radius: 6%;
     }
   }
   .contents {
     h2 {
       margin: 0;
-      font-size: 1.25rem;
+      font-size: 1rem;
+      font-weight: 850;
       a {
         /* color: block; */
         color: #47661f;
@@ -28,7 +40,7 @@ const NewsItemBlock = styled.div`
       margin: 0;
       line-height: 1.5;
       margin-top: 0.5rem;
-      font-size: 1.25rem;
+      font-size: 1rem;
       white-space: normal;
     }
   }
