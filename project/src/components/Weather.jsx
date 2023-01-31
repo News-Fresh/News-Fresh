@@ -49,8 +49,8 @@ import WeatherForecast from "./WeatherForecast";
   position: absolute;
   width: 33px;
   height: 33px;
-  left: 80px;
-  top: 20px;
+  left: 20px;
+  top: 25px;
   @media screen and (max-width: 768px) {
     left:20px;
   }
@@ -59,7 +59,7 @@ import WeatherForecast from "./WeatherForecast";
   position: absolute;
   width: 311px;
   height: 28px;
-  left: 30px;
+  left: 55px;
   top: 30px;
   
   font-family: 'Poppins';
@@ -156,7 +156,7 @@ export default function Weather() {
   const [result, setResult] = useState({});
   const [seoultemp, setSeoultemp] = useState({});
   
-  //useEffect(() => {
+  // useEffect(() => {
 
     const weatherShow = async (Seoul)=> {
       const data = await axios({
@@ -166,8 +166,8 @@ export default function Weather() {
       setResult(data);
       console.log(data);
     };
-  //  weatherShow();
-  //});
+    // weatherShow();
+  // });
 
     return(
         <>
