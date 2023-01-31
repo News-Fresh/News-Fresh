@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from 'styled-components';
 import apple from '../icons/apple.png';
 import grape from '../icons/grape.png';
 import watermelon from '../icons/watermelon.png';
 import pineapple from '../icons/pineapple.png';
+import Weather from "./Weather";
+import MainNews from "./MainNews";
+import Views from "./Views";
 
 
 const Menu = styled.div`
@@ -113,12 +116,12 @@ const PineappleIcon = styled.img`
     }
 `
 export default function Menubar() {
-
+    const [view, setView] = useState(true)
     return(
         <>
             <Menu>
-                <AppleIcon src={apple} alt='apple' />
-                <GrapeIcon src={grape} />
+                <AppleIcon src={apple} alt='apple' onClick={() => setView(true)}/>
+                <GrapeIcon src={grape} onClick={() => setView(false)}/>
                 <WatermelonIcon src={watermelon} />
                 <PineappleIcon src={pineapple} />
             </Menu>
@@ -126,6 +129,7 @@ export default function Menubar() {
                 <Bar1 />
                 <Bar2 />
             </BarStyle>
+            <div>{view ? <MainNews /> : <Weather />}</div>
         </>
     )
 }

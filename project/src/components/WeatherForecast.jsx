@@ -156,8 +156,8 @@ export default function WeatherForecast(props) {
   const API_KEY = "ab9fd86fdb0d2bd4968a55bfa83cf03c"
   const url = `https://api.openweathermap.org/data/2.5/forecast?q=seoul&appid=${API_KEY}`;
   const [result, setResult] = useState({});
-  // const [seoulforecast, setSeoulforecast] = useState({});
-  //   useEffect(() => {
+  const [seoulforecast, setSeoulforecast] = useState({});
+    // useEffect(() => {
       
     const forecastShow = async (Seoul)=> {
         const data = await axios({

@@ -15,6 +15,7 @@ import Paging from "./components/Paging";
 import ArticleIT from "./components/ArticleIT";
 import Weather from "./components/Weather";
 import WeatherForecast from "./components/WeatherForecast";
+import Views from "./components/Views";
 
 function App() {
   const [category, setCategory] = useState("all");
@@ -65,8 +66,8 @@ function App() {
       {/* <Categories category={category} onSelect={onSelect} /> */}
       <Menubar />
       <Logo />
-      <Weather />
-      <WeatherForecast />
+      {/* <Weather /> */}
+      <Views />
       {/* <ArticleIT />
       <ArticleGo />
       <ArticleMarket />
