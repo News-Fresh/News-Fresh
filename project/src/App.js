@@ -14,7 +14,7 @@ import NewsList from "./components/NewsList";
 import Paging from "./components/Paging";
 import ArticleIT from "./components/ArticleIT";
 import Weather from "./components/Weather";
-import WeatherForcast from "./components/WeatherForcast";
+import WeatherForcast from "./components/WeatherForecast";
 
 function App() {
   const [category, setCategory] = useState("all");
@@ -55,9 +55,9 @@ function App() {
     <div className="App">
       {/* <MainNews /> */}
       <Categories category={category} onSelect={onSelect} />
-      <NewsDiv>
+      {/* <NewsDiv>
         <NewsList category={category} />
-      </NewsDiv>
+      </NewsDiv> */}
       {/* props로 카테고리 state와 함수를 넘겨줌 */}
       {/* <Categories category={category} onSelect={onSelect} />
       <NewsList category={category} /> */}
