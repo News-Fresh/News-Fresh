@@ -63,8 +63,8 @@ function App() {
       {/* <Categories category={category} onSelect={onSelect} /> */}
       <Menubar />
       <Logo />
-      {/* <Weather />
-      <WeatherForecast /> */}
+      <Weather />
+      <WeatherForecast />
       {/* <ArticleIT />
       <ArticleGo />
       <ArticleMarket />
