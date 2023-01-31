@@ -14,7 +14,7 @@ import NewsList from "./components/NewsList";
 import Paging from "./components/Paging";
 import ArticleIT from "./components/ArticleIT";
 import Weather from "./components/Weather";
-import WeatherForcast from "./components/WeatherForecast";
+import WeatherForecast from "./components/WeatherForecast";
 
 function App() {
   const [category, setCategory] = useState("all");
@@ -66,7 +66,7 @@ function App() {
       <Menubar />
       <Logo />
       <Weather />
-      <WeatherForcast />
+      <WeatherForecast />
       {/* <ArticleIT />
       <ArticleGo />
       <ArticleMarket />

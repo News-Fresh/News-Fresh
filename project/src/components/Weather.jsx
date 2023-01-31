@@ -21,9 +21,9 @@ import WeatherForecast from "./WeatherForecast";
       width: 67%;
     }
     @media screen and (max-width: 768px) {
-      left: 18%;
-      top: 45%
-      width: 70%;
+      left: 16%;
+      top: 21%;
+      width: 65%;
     }
   `
   const Box = styled.div`
@@ -74,8 +74,8 @@ import WeatherForecast from "./WeatherForecast";
   
   color: #171717;
     @media screen and (max-width: 768px) {
-      left:-50px;
-      top:22px;
+      left: 55px;
+      top:26px;
       font-size:15px;
     }
   `

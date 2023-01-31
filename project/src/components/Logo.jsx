@@ -23,8 +23,8 @@ const Search = styled.input`
     top: 150px;
     width: 65%;
   }
-  @media screen and (max-width: 600px) {
-    left: 20%;
+  @media screen and (max-width: 768px) {
+    left: 15%;
     width: 60%;
   }
 `;
@@ -40,9 +40,15 @@ const LogoIcon = styled.img`
   @media screen and (max-width: 1600px) {
     left:530px;
   }
-  @media screen and (max-width: 600px) {
+  @media screen and (max-width: 1210px) {
+    left: 470px;
+    top: 60px;
+    width:80px;
+    height: 80px;
+  }
+  @media screen and (max-width: 768px) {
     left: 45%;
-    top: 70px;
+    top: 60px;
     width:80px;
     height: 80px;
   }
@@ -70,7 +76,12 @@ const LogoName = styled.a`
   @media screen and (max-width: 1600px) {
     left:180px;
   }
-  @media screen and (max-width: 600px) {
+  @media screen and (max-width: 1210px) {
+    left:180px;
+    top: 60px;
+    font-size: 60px;
+  }
+  @media screen and (max-width: 768px) {
     display: none;
   }
 `;
