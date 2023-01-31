@@ -53,29 +53,40 @@ const categories = [
 ];
 const CategoriesBlock = styled.div`
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  /* flex-basis: 15px;
-  flex-grow: 2; */
-  justify-content: middle;
+  justify-content: center;
+  top: 10rem;
+  right: 40px;
+  width: 45%;
+  /* flex-direction: row; */
+  /* flex-wrap: wrap; */
+  /* justify-content: middle; */
   align-items: middle;
   flex-wrap: nowrap;
+  position: absolute;
+  /* flex-basis: 15px;
+  flex-grow: 2; */
   /* padding: 1rem;
   width: 768px; */
   /* margin: 0 auto;
   padding: auto; */
-  /* position: absolute;
-  top: 0rem;
-  left: 0rem; */
-  @media screen and (max-width: 768px) {
-    display: flex;
-    position: absolute;
+  @media screen and (max-width: 1210px) {
+    top: 14rem;
+    right: 18%;
+    width: 60%;
+    /* display: flex; */
+    /* position: absolute; */
     /* left: 15%;
     top: 13.5rem; */
-    top: 4rem;
-    left: 0rem;
-    width: 4.25rem;
+  }
+  @media screen and (max-width: 768px) {
+    top: 14rem;
     height: 3.2rem;
+    left: 15%;
+    width: 66%;
+    /* display: flex; */
+    /* position: absolute; */
+    /* left: 15%;
+    top: 13.5rem; */
   }
 `;
 
@@ -88,9 +99,9 @@ const Category = styled.div`
   justify-content: middle;
   align-items: middle;
   flex-wrap: wrap;
-  position: relative;
-  top: 10rem;
-  left: 50rem;
+  /* position: relative;
+  top: 100rem;
+  left: 50rem; */
   cursor: pointer;
   white-space: pre;
   text-decoration: none;
@@ -104,14 +115,24 @@ const Category = styled.div`
   justify-content: center;
   align-items: center;
   background-color: #e6ecf2;
-  @media screen and (max-width: 768px) {
-    position: absolute;
+  @media screen and (max-width: 1210px) {
+    font-size: 15px;
+    width: 15%;
+    /* position: absolute;
     padding: 0;
     margin: 0;
     left: 10rem;
-    top: 13.5rem;
-    width: 4.25rem;
-    height: 3.2rem;
+    top: 13.5rem;*/
+  }
+  @media screen and (max-width: 768px) {
+    font-size: 10px;
+    width: 30%;
+    height: 3rem;
+    /* position: absolute;
+    padding: 0;
+    margin: 0;
+    left: 10rem;
+    top: 13.5rem;*/
   }
   &:hover {
     color: #495057;
