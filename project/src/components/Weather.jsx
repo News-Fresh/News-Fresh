@@ -9,9 +9,9 @@ import WeatherForecast from "./WeatherForecast";
   const WeatherBox = styled.div`
   position: absolute;
   width: 43%;
-  height: 60%;
+  height: 700px;
   right: 50px;
-  top: 45%;
+  top: 300px;
   
   /* Color/White/WHITE */
   border-radius: 27.2478px;
@@ -19,16 +19,17 @@ import WeatherForecast from "./WeatherForecast";
   @media screen and (max-width: 1210px) {
       left: 170px;
       width: 67%;
+      top: 350px;
     }
     @media screen and (max-width: 768px) {
       left: 16%;
-      top: 21%;
       width: 65%;
+      top: 300px;
     }
   `
   const Box = styled.div`
   position: absolute;
-  width: 85%;
+  width: 80%;
   height: 30%;
   top: 70px;
   left : 6%;
@@ -38,10 +39,10 @@ import WeatherForecast from "./WeatherForecast";
   border-radius: 27.2478px;
   background: linear-gradient(45deg, #008299, #3DB7CC);
   @media screen and (max-width: 1210px) {
-    left: 5%;
+    left: 4%;
   }
   @media screen and (max-width: 768px) {
-    left: 1%;
+    left: 3%;
   }
   `
   const LogoIcon = styled.img`
@@ -133,7 +134,7 @@ import WeatherForecast from "./WeatherForecast";
   `
   const Weatherimg = styled.img`
   position: absolute;
-  width:18%;
+  height:50%;
   left: 15%;
   top: 25%;
   padding-top : 10px;
