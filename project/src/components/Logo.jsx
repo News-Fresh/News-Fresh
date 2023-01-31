@@ -25,7 +25,6 @@ const Search = styled.input`
   }
   @media screen and (max-width: 600px) {
     left: 20%;
-    top: 150px;
     width: 60%;
   }
 `;
@@ -33,17 +32,26 @@ const LogoIcon = styled.img`
   position: absolute;
   width: 100px;
   height: 100px;
-  left: 530px;
+  left: 800px;
   top: 40px;
+  @media screen and (max-width: 1800px) {
+    left:550px;
+  }
+  @media screen and (max-width: 1600px) {
+    left:530px;
+  }
   @media screen and (max-width: 600px) {
     left: 45%;
+    top: 70px;
+    width:80px;
+    height: 80px;
   }
 `;
 const LogoName = styled.a`
   position: absolute;
   height: 115px;
-  left: 180px;
-  right: 67.08%;
+  left: 450px;
+  // right: 67.08%;
   top: 50px;
 
   font-family: "Piazzolla";
@@ -56,6 +64,12 @@ const LogoName = styled.a`
   color: #83a558;
   text-decoration: none;
 
+  @media screen and (max-width: 1800px) {
+    left:220px;
+  }
+  @media screen and (max-width: 1600px) {
+    left:180px;
+  }
   @media screen and (max-width: 600px) {
     display: none;
   }
@@ -64,8 +78,11 @@ const LogoName = styled.a`
 export default function Logo() {
   return (
     <>
-      <LogoIcon src={Icon} alt="logo" />
-      <LogoName href="">NewsFresh</LogoName>
+      <div>
+
+        <LogoIcon src={Icon} alt="logo" />
+        <LogoName href="">NewsFresh</LogoName>
+      </div>
       <Search type="text" placeholder="Search..." />
     </>
   );

@@ -13,6 +13,8 @@ import styled from "styled-components";
 import NewsList from "./components/NewsList";
 import Paging from "./components/Paging";
 import ArticleIT from "./components/ArticleIT";
+import Weather from "./components/Weather";
+import WeatherForcast from "./components/WeatherForcast";
 
 function App() {
   const [category, setCategory] = useState("all");
@@ -63,6 +65,8 @@ function App() {
       {/* <Categories category={category} onSelect={onSelect} /> */}
       <Menubar />
       <Logo />
+      <Weather />
+      <WeatherForcast />
       {/* <ArticleIT />
       <ArticleGo />
       <ArticleMarket />
