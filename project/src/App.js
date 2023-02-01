@@ -8,6 +8,7 @@ import Categories from "./components/Categories";
 import { useCallback, useState } from "react";
 import styled from "styled-components";
 import NewsList from "./components/NewsList";
+import SearchNews from "./components/SearchNews";
 import Views from "./components/Views";
 
 function App() {
@@ -49,6 +50,7 @@ function App() {
     <div className="App">
       <Categories category={category} onSelect={onSelect} />
       <NewsList category={category} />
+      {/* <SearchNews /> */}
 
       {/* <NewsDiv>
         <NewsList category={category} />
