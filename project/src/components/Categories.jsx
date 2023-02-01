@@ -36,7 +36,7 @@ const categories = [
   {
     name: "technology",
     img: "     ❇️    ",
-    text: "🛸TECH",
+    text: "🛸TECH  ",
   },
   {
     name: "business",
@@ -48,7 +48,7 @@ const categories = [
   },
   {
     name: "entertainment",
-    text: "🌟FUN",
+    text: "🌟FUN ",
   },
 ];
 const CategoriesBlock = styled.div`

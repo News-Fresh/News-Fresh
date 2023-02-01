@@ -57,3 +57,16 @@ ul.pagination li a.active {
   height: 30px;
   color: #337ab7;
 }
+
+@media screen and (max-width: 1210px) {
+  .pagination {
+    display: flex;
+    position: relative;
+    /* top: 41rem;
+    left: 23rem; */
+    justify-content: center;
+    margin-top: 1rem;
+    font-family: "Nanum Myeongjo";
+    text-align: center;
+  }
+}
