@@ -9,7 +9,7 @@ import { useCallback, useState } from "react";
 import styled from "styled-components";
 import NewsList from "./components/NewsList";
 import SearchNews from "./components/SearchNews";
-import Views from "./components/Views";
+import Weather from "./components/Weather";
 
 function App() {
   const [category, setCategory] = useState("all");
@@ -57,7 +57,7 @@ function App() {
       </NewsDiv> */}
       <Menubar />
       <Logo />
-      {/* <Weather /> */}
+      <Weather />
       {/* <Views /> */}
       <Routes>
         <Route path="/:category?" component={NewsPage} />
