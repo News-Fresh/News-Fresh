@@ -6,12 +6,11 @@ const NewsItemBlock = styled.div`
   /* position: fixed; */
   font-family: "Nanum Myeongjo";
   text-align: center;
-  padding: 1rem;
+  margin-top: 2rem;
+  padding-left: 1rem;
+  padding-bottom: 1rem;
   max-width: 90%;
-  /* flex-wrap: nowrap; */
-  /* justify-content: space-between; */
-
-  /* min-width: 45%; */
+  overflow: hidden;
   max-height: 70%;
   /* min-height: 55%; */
   .thumbnail {
@@ -45,7 +44,7 @@ const NewsItemBlock = styled.div`
     }
   }
   & + & {
-    margin-top: 3rem;
+    margin-top: 1rem;
   }
 `;
 

@@ -27,7 +27,21 @@ const NewsItemBlock = styled.div`
   min-width: 45%;
   max-height: 49%;
   min-height: 49%;
-  overflow: hidden;
+  overflow: scroll;
+  overflow-y: auto;
+  &::-webkit-scrollbar {
+    width: 12px;
+    height: 0px;
+  }
+  &::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    background-color: #c4dea3;
+  }
+  &::-webkit-scrollbar-track {
+    background-color: #eee;
+    border-radius: 10px;
+  }
+  /* overflow: hidden; */
 
   @media screen and (max-width: 768px) {
     position: relative;
@@ -48,6 +62,19 @@ const NewsItemBlock = styled.div`
     padding-right: 1rem;
   } */
 `;
+
+// const Scrolldiv = styled.div`
+//   position: absolute;
+//   top: 50px;
+//   right: 40px;
+//   z-index: 1;
+//   padding: 10px;
+//   background: rgb(236, 97, 218);
+//   border-radius: 6px;
+//   color: #fff;
+//   border: 1px solid rgb(183, 81, 187);
+//   text-align: left;
+// `;
 
 const NewsList = ({ category }) => {
   // const [items, setItems] = useState([]); //리스트에 나타낼 아이템
@@ -119,6 +146,9 @@ const NewsList = ({ category }) => {
         {currentPosts.map((v) => (
           <NewsItem key={v.url} article={v} />
         ))}
+        {/* <Scrolldiv className={ScrollActive ? "smallBox fixed" : "smallBox"}>
+          {ScrollActive ? "I am fixed! ✨" : "I will be fixed! 😁"}
+        </Scrolldiv> */}
       </NewsItemBlock>
       <Paging page={currentpage} count={count} setPage={setPage} />
     </>
