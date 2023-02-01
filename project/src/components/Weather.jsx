@@ -7,24 +7,37 @@ import WeatherTime from "./WeatherTime";
 import WeatherForecast from "./WeatherForecast";
 
   const WeatherBox = styled.div`
-  position: absolute;
+  // position: absolute;
   width: 43%;
-  height: 700px;
-  right: 50px;
-  top: 300px;
+  // height:750px;
+  // right: 50px;
+  // top: 300px;
   
-  /* Color/White/WHITE */
-  border-radius: 27.2478px;
+  // /* Color/White/WHITE */
+  // border-radius: 27.2478px;
   background-color: #e6ecf2;
+  position: absolute;
+  margin: auto;
+  padding: auto;
+  left: 10%;
+  top: 35%;
+  border-radius: 4%;
+  // max-width: 40%;
+  // min-width: 40%;
+  max-height: 49%;
+  min-height: 49%;
+  overflow: scroll;
+  overflow-y: auto;
   @media screen and (max-width: 1210px) {
-      left: 170px;
-      width: 67%;
-      top: 350px;
+      left: 30%;
+      width: 45%;
+      top: 750px;
     }
     @media screen and (max-width: 768px) {
-      left: 16%;
-      width: 65%;
-      top: 300px;
+      width: 20rem;
+      left: 10%;
+      top: 650px;
+      height: 450px;
     }
   `
   const Box = styled.div`
