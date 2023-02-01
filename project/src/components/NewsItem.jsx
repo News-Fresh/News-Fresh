@@ -3,7 +3,6 @@ import styled from "styled-components";
 
 const NewsItemBlock = styled.div`
   display: flex;
-  /* position: fixed; */
   font-family: "Nanum Myeongjo";
   text-align: center;
   margin-top: 2rem;
@@ -12,7 +11,6 @@ const NewsItemBlock = styled.div`
   max-width: 90%;
   overflow: hidden;
   max-height: 70%;
-  /* min-height: 55%; */
   .thumbnail {
     img {
       margin-right: 1rem;
@@ -20,13 +18,27 @@ const NewsItemBlock = styled.div`
       height: 6rem;
       object-fit: cover;
       border-radius: 6%;
+      /* @media screen and (max-width: 1210px) {
+        width: 7rem;
+        height: 6rem;
+      } */
     }
   }
   .contents {
     h2 {
-      margin: 0;
+      margin: 5px;
       font-size: 1rem;
       font-weight: 850;
+      @media screen and (max-width: 1210px) {
+        margin: 5px;
+        font-size: 0.75rem;
+        font-weight: 850;
+      }
+      @media screen and (max-width: 768px) {
+        margin: 5px;
+        font-size: 0.5rem;
+        font-weight: 850;
+      }
       a {
         /* color: block; */
         color: #47661f;
@@ -41,10 +53,44 @@ const NewsItemBlock = styled.div`
       margin-top: 0.5rem;
       font-size: 1rem;
       white-space: normal;
+      @media screen and (max-width: 1210px) {
+        margin: 0;
+        font-size: 0.75rem;
+      }
+      @media screen and (max-width: 768px) {
+        margin: 0;
+        font-size: 0.5rem;
+      }
     }
   }
   & + & {
     margin-top: 1rem;
+  }
+  @media screen and (max-width: 1210px) {
+    left: 30%;
+    top: 22rem;
+    display: flex;
+    font-family: "Nanum Myeongjo";
+    text-align: center;
+    margin-top: 1rem;
+    padding-left: 0.75rem;
+    /* padding-bottom: 1rem; */
+    max-width: 90%;
+    overflow: hidden;
+    max-height: 70%;
+  }
+  @media screen and (max-width: 768px) {
+    left: 30%;
+    top: 22rem;
+    display: flex;
+    font-family: "Nanum Myeongjo";
+    text-align: center;
+    margin-top: 1rem;
+    padding-left: 0.75rem;
+    /* padding-bottom: 1rem; */
+    max-width: 90%;
+    overflow: hidden;
+    max-height: 70%;
   }
 `;
 

@@ -42,25 +42,21 @@ const NewsItemBlock = styled.div`
     border-radius: 10px;
   }
   /* overflow: hidden; */
-
-  @media screen and (max-width: 768px) {
-    position: relative;
+  @media screen and (max-width: 1210px) {
+    position: absolute;
     margin: 0;
     padding: 0;
-    left: 17%;
-    top: 18.5rem;
-    width: 19rem;
-    height: 20rem;
-    border-radius: 5%;
+    left: 30%;
+    top: 22rem;
   }
-  /* @media screen and (max-width: 768px) {
-    position: relative;
-    top: 5%;
-    width: 100%;
-    /* height: 20%; */
-  /* padding-left: 1rem;
-    padding-right: 1rem;
-  } */
+  @media screen and (max-width: 768px) {
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    left: 10%;
+    top: 18rem;
+    max-width: 20rem;
+  }
 `;
 
 // const Scrolldiv = styled.div`
@@ -100,9 +96,9 @@ const NewsList = ({ category }) => {
       const query = category === "all" ? "" : `&category=${category}`;
       axios
         .get(
-          `https://newsapi.org/v2/top-headlines?country=kr${query}&apiKey=a5ee1fb9d67341ec941a37c89cfc3283`
+          // `https://newsapi.org/v2/top-headlines?country=kr${query}&apiKey=a5ee1fb9d67341ec941a37c89cfc3283`
 
-          // `https://newsapi.org/v2/top-headlines?country=kr${query}&apiKey=aa6dae99785d48dfa798e3c8b62dd365`
+          `https://newsapi.org/v2/top-headlines?country=kr${query}&apiKey=aa6dae99785d48dfa798e3c8b62dd365`
         )
         .then((res) => {
           // API 데이터 state 저장
