@@ -94,7 +94,7 @@ export default function Logo() {
         <LogoIcon src={Icon} alt="logo" />
         <LogoName href="">NewsFresh</LogoName>
       </div>
-      <Search type="text" placeholder="Search..." />
+      {/* <Search type="text" placeholder="Search..." /> */}
     </>
   );
 }
