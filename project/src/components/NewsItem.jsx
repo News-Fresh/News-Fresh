@@ -6,18 +6,22 @@ const NewsItemBlock = styled.div`
   font-family: "Nanum Myeongjo";
   text-align: center;
   margin-top: 2rem;
-  padding-left: 1rem;
-  padding-bottom: 1rem;
+  /* padding-left: 1rem; */
+  /* padding-bottom: 1rem; */
+  padding: 2rem 1rem 0rem 1rem;
+  height: 6rem;
   max-width: 90%;
   overflow: hidden;
   max-height: 70%;
   .thumbnail {
     img {
       margin-right: 1rem;
-      width: 7rem;
-      height: 6rem;
+      padding: 1rem;
+      width: 5.5rem;
+      height: 4rem;
       object-fit: cover;
-      border-radius: 6%;
+      border-radius: 10%;
+
       /* @media screen and (max-width: 1210px) {
         width: 7rem;
         height: 6rem;
@@ -69,6 +73,7 @@ const NewsItemBlock = styled.div`
   @media screen and (max-width: 1210px) {
     left: 30%;
     top: 22rem;
+    height: 6rem;
     display: flex;
     font-family: "Nanum Myeongjo";
     text-align: center;
@@ -78,10 +83,12 @@ const NewsItemBlock = styled.div`
     max-width: 90%;
     overflow: hidden;
     max-height: 70%;
+    padding: 2rem 1rem 1rem 1rem;
   }
   @media screen and (max-width: 768px) {
     left: 30%;
     top: 22rem;
+    height: 7rem;
     display: flex;
     font-family: "Nanum Myeongjo";
     text-align: center;
@@ -89,7 +96,7 @@ const NewsItemBlock = styled.div`
     padding-left: 0.75rem;
     /* padding-bottom: 1rem; */
     max-width: 90%;
-    overflow: hidden;
+    overflow: scroll;
     max-height: 70%;
   }
 `;

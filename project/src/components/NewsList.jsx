@@ -3,19 +3,9 @@ import styled from "styled-components";
 import axios from "axios";
 import Paging from "./Paging";
 import NewsItem from "./NewsItem";
+import Icon from "../icons/logo.png";
 
 const NewsItemBlock = styled.div`
-  /* position: relative;
-  top: 20rem;
-  /* left: 2%; */
-  /* box-sizing: border-box;
-  margin: 10px; */
-  /* padding-bottom: 3rem; */
-  /* width: 80%;
-  margin: 0 auto;
-  margin-top: 2rem; */
-  /* justify-content: center;
-  display: block; */
   background-color: #e6ecf2;
   position: absolute;
   margin: auto;
@@ -58,19 +48,41 @@ const NewsItemBlock = styled.div`
     max-width: 20rem;
   }
 `;
+const LogoIcon = styled.img`
+  position: absolute;
+  width: 33px;
+  height: 33px;
+  left: 20px;
+  top: 25px;
+  @media screen and (max-width: 768px) {
+    left: 20px;
+  }
+`;
+const NewsText = styled.span`
+  position: absolute;
+  width: 311px;
+  height: 28px;
+  left: 55px;
+  top: 30px;
 
-// const Scrolldiv = styled.div`
-//   position: absolute;
-//   top: 50px;
-//   right: 40px;
-//   z-index: 1;
-//   padding: 10px;
-//   background: rgb(236, 97, 218);
-//   border-radius: 6px;
-//   color: #fff;
-//   border: 1px solid rgb(183, 81, 187);
-//   text-align: left;
-// `;
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 17.9381px;
+  line-height: 28px;
+  /* or 157% */
+
+  letter-spacing: -0.512518px;
+
+  /* Black/B100 */
+
+  color: #171717;
+  @media screen and (max-width: 768px) {
+    left: 55px;
+    top: 26px;
+    font-size: 15px;
+  }
+`;
 
 const NewsList = ({ category }) => {
   // const [items, setItems] = useState([]); //리스트에 나타낼 아이템
@@ -139,6 +151,8 @@ const NewsList = ({ category }) => {
     <>
       {/* {currentPosts && count > 0 ? ( */}
       <NewsItemBlock>
+        <LogoIcon src={Icon} alt="icon" />
+        <NewsText>Today News</NewsText>
         {currentPosts.map((v) => (
           <NewsItem key={v.url} article={v} />
         ))}
