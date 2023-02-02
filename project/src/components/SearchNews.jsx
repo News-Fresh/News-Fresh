@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useRef, useState, useEffect } from "react";
-import styled from 'styled-components';
+import styled from "styled-components";
 import Icon from "../icons/logo.png";
 import NewsItem from "./NewsItem";
 import Paging from "./Paging";
@@ -32,7 +32,6 @@ const Search = styled.input`
   }
 `;
 const SearchBtn = styled.button`
-  
   flex-direction: row;
   position: absolute;
   width: 60px;
@@ -41,7 +40,7 @@ const SearchBtn = styled.button`
   top: 80px;
   color: white;
   font-weight: 700;
-  font-family: 'Poppins';
+  font-family: "Poppins";
   font-style: normal;
   z-index: 1;
   background: green;
@@ -82,7 +81,7 @@ const ExitBtn = styled.button`
 `;
 
 const NewsItemBlock = styled.div`
-  background-color: #e6ecf2;
+  background-color: #fffdf4;
   position: absolute;
   margin: auto;
   padding: auto;
@@ -163,7 +162,7 @@ const NewsText = styled.span`
     font-size: 15px;
   }
 `;
-  
+
 const SearchNewsItemBlock = styled.div`
   display: flex;
   font-family: "Nanum Myeongjo";
@@ -275,13 +274,15 @@ export default function Weather() {
   // const [postPerPage] = useState(2); //페이지당 아이템 개수
   // const [count, setCount] = useState(0);
   // const query = search === "" ? "" : `&search=${search}`;
+
   // const url = `https://newsapi.org/v2/everything?q=${search}&from=2023-02-01&sortBy=popularity&apiKey=dc5d90593807448a8ac39ac9a3571a51`;
   const url = `https://newsapi.org/v2/everything?q=${search}&from=2023-02-01&sortBy=popularity&apiKey=41a85db10eab456d8e732c5685e33b2a`;
   console.log("result", result.length)
+
   const onSearch = (e) => {
-    console.log(e.target.value)
-    setSearch(e.target.value)
-  }
+    console.log(e.target.value);
+    setSearch(e.target.value);
+  };
 
   //검색엔진버튼 눌러서 화면전환
   const SearchEnd = () => {
@@ -289,46 +290,40 @@ export default function Weather() {
   }
 
   // useEffect(() => {
-    const NewsShow = async ()=> {
-      
-      
-      // APi 호출 시간동안 보여줄 로딩바
-      setLoading(true);
+  const NewsShow = async () => {
+    // APi 호출 시간동안 보여줄 로딩바
+    setLoading(true);
 
-      // divStyle.current.style = 'display:inline;'
-      // console.log(divStyle.current.style.display);
-      // try catch문 에러 처리
-      try {
-        
-        const res = await axios({
-          method : 'get',
-          url : url
-        })
-        setResult(res.data.articles);
-        console.log(res.data.articles);
-        console.log(res.data.articles[1]);
-        // setCurrentPosts(
-          //   res.data.articles?.slice(indexOfFirstPost, indexOfLastPost)
+    // divStyle.current.style = 'display:inline;'
+    // console.log(divStyle.current.style.display);
+    // try catch문 에러 처리
+    try {
+      const res = await axios({
+        method: "get",
+        url: url,
+      });
+      setResult(res.data.articles);
+      console.log(res.data.articles);
+      console.log(res.data.articles[1]);
+      // setCurrentPosts(
+      //   res.data.articles?.slice(indexOfFirstPost, indexOfLastPost)
       // );
       // // setCount(res.data.articles?.length);
       // setCurrentPosts(
-        //   res.data.articles?.slice(indexOfFirstPost, indexOfLastPost)
-        // );
-        // setIndexOfLastPost(currentpage * postPerPage); // 마지막 페이지의 개수 (한화면에 보여줄 마지막 페이지)
-        // setIndexOfFirstPost(indexOfLastPost - postPerPage); // 아이템의 첫번째 위치
-        // console.log(res.data.articles?.slice(indexOfFirstPost, indexOfLastPost))
-        
-      }
-      catch (e) {
-        console.log(e);
-      }
-      setLoading(false);
-      
-    };
-    
-    //   NewsShow();
+      //   res.data.articles?.slice(indexOfFirstPost, indexOfLastPost)
+      // );
+      // setIndexOfLastPost(currentpage * postPerPage); // 마지막 페이지의 개수 (한화면에 보여줄 마지막 페이지)
+      // setIndexOfFirstPost(indexOfLastPost - postPerPage); // 아이템의 첫번째 위치
+      // console.log(res.data.articles?.slice(indexOfFirstPost, indexOfLastPost))
+    } catch (e) {
+      console.log(e);
+    }
+    setLoading(false);
+  };
+
+  //   NewsShow();
   // }, []);
-    // weatherShow();
+  // weatherShow();
   // });
 
   // 대기 중
