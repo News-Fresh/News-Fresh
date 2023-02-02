@@ -1,6 +1,6 @@
 .pagination {
   display: flex;
-  position: relative;
+  position: absolute;
   top: 41rem;
   left: 23rem;
   justify-content: center;
