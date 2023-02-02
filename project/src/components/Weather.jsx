@@ -162,6 +162,34 @@ const Weatherimg = styled.img`
     width: 20%;
   }
 `;
+
+const WeatherBtn = styled.button`
+  
+  flex-direction: row;
+  position: absolute;
+  width: 50px;
+  height: 30px;
+  right: 15%;
+  top: 30px;
+  color: white;
+  font-weight: 700;
+  font-family: 'Poppins';
+  font-style: normal;
+  z-index: 1;
+  background: #c4dea3;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  @media screen and (max-width: 1210px) {
+    right: 21%;
+    top: 28px;
+  }
+  @media screen and (max-width: 768px) {
+    right: 21%;
+    top: 26px;
+  }
+`;
+
 export default function Weather() {
   const API_KEY = "4281729cba61323b40e791c6036334ed";
   const url = `https://api.openweathermap.org/data/2.5/weather?q=Seoul&appid=${API_KEY}`;
@@ -204,7 +232,7 @@ export default function Weather() {
           </Box>
         )}
         <WeatherForecast />
-        <button onClick={weatherShow}>날씨보기</button>
+        <WeatherBtn onClick={weatherShow}>Today</WeatherBtn>
       </WeatherBox>
     </>
   );

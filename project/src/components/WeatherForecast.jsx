@@ -152,6 +152,32 @@ justify-content: center;
 top: 120px;
 padding-top : 10px;
 `
+
+const ForecastBtn = styled.button`
+  
+  flex-direction: row;
+  position: absolute;
+  width: 50px;
+  height: 30px;
+  right: 5%;
+  top: 30px;
+  color: white;
+  font-weight: 700;
+  font-family: 'Poppins';
+  font-style: normal;
+  z-index: 1;
+  background: #c4dea3;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  @media screen and (max-width: 1210px) {
+    top: 28px;
+  }
+  @media screen and (max-width: 768px) {
+    right: 5%;
+    top: 26px;
+  }
+`;
 export default function WeatherForecast(props) {
   const API_KEY = "ab9fd86fdb0d2bd4968a55bfa83cf03c"
   const url = `https://api.openweathermap.org/data/2.5/forecast?q=seoul&appid=${API_KEY}`;
@@ -238,7 +264,7 @@ export default function WeatherForecast(props) {
                         </Box3>
                   </ForecastBox>
                 )}
-            <button onClick={forecastShow}>예보</button>
+            <ForecastBtn onClick={forecastShow}>예보</ForecastBtn>
         </>
     )
 }
