@@ -50,7 +50,7 @@ function App() {
     <div className="App">
       <Categories category={category} onSelect={onSelect} />
       <NewsList category={category} />
-      {/* <SearchNews /> */}
+      <SearchNews />
 
       {/* <NewsDiv>
         <NewsList category={category} />

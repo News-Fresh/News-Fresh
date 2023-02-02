@@ -43,7 +43,7 @@ const SearchBtn = styled.button`
   font-weight: 700;
   font-family: 'Poppins';
   font-style: normal;
-
+  z-index: 1;
   background: green;
   border-radius: 15px;
   border: none;
@@ -61,7 +61,7 @@ const NewsItemBlock = styled.div`
   margin: auto;
   padding: auto;
   left: 54%;
-  top: 42%;
+  top: 35%;
   border-radius: 4%;
   max-width: 45%;
   min-width: 45%;
@@ -69,6 +69,8 @@ const NewsItemBlock = styled.div`
   min-height: 49%;
   overflow: scroll;
   overflow-y: auto;
+  /* overflow: hidden; */
+  /* display: none; */
   &::-webkit-scrollbar {
     width: 12px;
     height: 0px;
@@ -144,9 +146,9 @@ const SearchNewsItemBlock = styled.div`
   /* padding-left: 1rem; */
   /* padding-bottom: 1rem; */
   padding: 2rem 1rem 0rem 1rem;
-  height: 6rem;
+  /* height: 6rem; */
   max-width: 90%;
-  overflow: hidden;
+  /* overflow: hidden; */
   max-height: 70%;
   .thumbnail {
     img {
@@ -216,7 +218,7 @@ const SearchNewsItemBlock = styled.div`
     padding-left: 0.75rem;
     /* padding-bottom: 1rem; */
     max-width: 90%;
-    overflow: hidden;
+    /* overflow: hidden; */
     max-height: 70%;
     padding: 2rem 1rem 1rem 1rem;
   }
@@ -236,66 +238,9 @@ const SearchNewsItemBlock = styled.div`
   }
 `;
 
-  const WeatherStatus = styled.div`
-  position: absolute;
-  right: 25%;
-  top: 55%;
-  
-  font-family: 'Poppins';
-  font-style: normal;
-  font-weight: 700;
-  font-size: 30px;
-  line-height: 28px;
-  z-index:1;
-  
-  color: white;
-    @media screen and (max-width: 1210px) {
-      font-size:25px;
-    }
-    @media screen and (max-width: 768px) {
-      font-size:15px;
-    }
-  `
-  const Temperature = styled.div`
-  position: absolute;
-  right: 22%;
-  top: 75%;
-  
-  font-family: 'Poppins';
-  font-style: normal;
-  font-weight: 700;
-  font-size: 45px;
-  line-height: 28px;
-  
-  color: white;
-    @media screen and (max-width: 768px) {
-      font-size: 30px;
-    }
-    @media screen and (max-width: 768px) {
-      font-size:20px;
-    }
-  `
-  const Weatherimg = styled.img`
-  position: absolute;
-  height:50%;
-  left: 15%;
-  top: 25%;
-  padding-top : 10px;
-  border-radius:10px;
-  @media screen and (max-width: 1210px) {
-    top : 25%;
-    width: 15%;
-    bottom:10%;
-  }
-  @media screen and (max-width: 768px) {
-    top: 30%;
-    width: 20%;
-  }
-  
-  `
 export default function Weather() {
   const [search, setSearch] = useState({});
-  const [result, setResult] = useState({});
+  const [result, setResult] = useState([]);
   const [loading, setLoading] = useState(null);
   // const [currentPosts, setCurrentPosts] = useState(0); // 현재
   // const [indexOfFirstPost, setIndexOfFirstPost] = useState(0); // 처음 포스트
@@ -303,50 +248,53 @@ export default function Weather() {
   // const [currentpage, setCurrentpage] = useState(1); //현재페이지
   // const [postPerPage] = useState(2); //페이지당 아이템 개수
   // const [count, setCount] = useState(0);
-  const query = search === "" ? "" : `&search=${search}`;
+  // const query = search === "" ? "" : `&search=${search}`;
   const url = `https://newsapi.org/v2/everything?q=${search}&from=2023-02-01&sortBy=popularity&apiKey=dc5d90593807448a8ac39ac9a3571a51`;
-  
+  console.log("result", result.length)
   const onSearch = (e) => {
-    setSearch(e.target.value)
     console.log(e.target.value)
-}
- 
+    setSearch(e.target.value)
+  }
+
   // useEffect(() => {
-
     const NewsShow = async ()=> {
-
+      
+      
       // APi 호출 시간동안 보여줄 로딩바
       setLoading(true);
+
+      // divStyle.current.style = 'display:inline;'
+      // console.log(divStyle.current.style.display);
       // try catch문 에러 처리
       try {
-
-      const res = await axios({
-        method : 'get',
-        url : url
-      })
-      setResult(res.data.articles);
-      console.log(res.data.articles);
-      console.log(res.data.articles[1]);
-      // setCurrentPosts(
-      //   res.data.articles?.slice(indexOfFirstPost, indexOfLastPost)
+        
+        const res = await axios({
+          method : 'get',
+          url : url
+        })
+        setResult(res.data.articles);
+        console.log(res.data.articles);
+        console.log(res.data.articles[1]);
+        // setCurrentPosts(
+          //   res.data.articles?.slice(indexOfFirstPost, indexOfLastPost)
       // );
       // // setCount(res.data.articles?.length);
       // setCurrentPosts(
-      //   res.data.articles?.slice(indexOfFirstPost, indexOfLastPost)
-      // );
-      // setIndexOfLastPost(currentpage * postPerPage); // 마지막 페이지의 개수 (한화면에 보여줄 마지막 페이지)
-      // setIndexOfFirstPost(indexOfLastPost - postPerPage); // 아이템의 첫번째 위치
-      // console.log(res.data.articles?.slice(indexOfFirstPost, indexOfLastPost))
-      
+        //   res.data.articles?.slice(indexOfFirstPost, indexOfLastPost)
+        // );
+        // setIndexOfLastPost(currentpage * postPerPage); // 마지막 페이지의 개수 (한화면에 보여줄 마지막 페이지)
+        // setIndexOfFirstPost(indexOfLastPost - postPerPage); // 아이템의 첫번째 위치
+        // console.log(res.data.articles?.slice(indexOfFirstPost, indexOfLastPost))
+        
       }
       catch (e) {
         console.log(e);
       }
       setLoading(false);
-
+      
     };
-
-  //   NewsShow();
+    
+    //   NewsShow();
   // }, []);
     // weatherShow();
   // });
@@ -357,13 +305,16 @@ export default function Weather() {
   }
   // articles 값이 설정 안될경우 (null 오류방지)
   if (!result) {
-    return null;
+    return "null";
   }
 
     return(
         <> 
                 <Search type="text" placeholder="Search..." onChange={onSearch}/>
                 <SearchBtn onClick={NewsShow}>검색</SearchBtn>
+                {/* <SearchBtn onClick={stylechange}>올라가자</SearchBtn> */}
+            {result.length === 0 ?
+            '' : 
             <NewsItemBlock>
                 <LogoIcon src={Icon} alt="icon" />
                 <NewsText>News 검색결과</NewsText>
@@ -374,17 +325,13 @@ export default function Weather() {
                     <NewsItem key={v.url} article={v} />
                       ))}
                   </div>
-                    {/* <Temperature className="temperature">{Math.round(((result.data.main.temp - 273.15) * 10))/10}℃</Temperature>
-                    <Weatherimg src={result.data.weather[0].main = 'clear' ? clear : 'bad'} alt="" /> */}
+                    {/* <Temperature className="temperature">{Math.round(((result.data.main.temp - 273.15) * 10))/10}℃</Temperature> */}
+                    {/* <Weatherimg src={result.data.weather[0].main = 'clear' ? clear : 'bad'} alt="" /> */}
                   </SearchNewsItemBlock>
-                {/* )} */}
-                {/* <WeatherForecast/> */}
-                
-    
             </NewsItemBlock>
-            {/* <Paging page={currentpage} 
-            count={count} setPage={setPage}
-             /> */}
+            // : ''
+            }
+                {/* )} */}
         </>
     )
 }
