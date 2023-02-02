@@ -165,7 +165,6 @@ const ForecastBtn = styled.button`
   font-weight: 700;
   font-family: 'Poppins';
   font-style: normal;
-  z-index: 1;
   background: #c4dea3;
   border-radius: 5px;
   border: none;
@@ -182,18 +181,18 @@ export default function WeatherForecast(props) {
   const API_KEY = "ab9fd86fdb0d2bd4968a55bfa83cf03c"
   const url = `https://api.openweathermap.org/data/2.5/forecast?q=seoul&appid=${API_KEY}`;
   const [result, setResult] = useState({});
-  const [seoulforecast, setSeoulforecast] = useState({});
-    // useEffect(() => {
+    
+  useEffect(() => {
       
     const forecastShow = async (Seoul)=> {
         const data = await axios({
-            method : 'post',
+            method : 'get',
             url : url
         })
         setResult(data);
     };
-    // forecastShow();
-    //   });
+    forecastShow();
+      }, [result, url]);
     
     return(
         <>
@@ -264,7 +263,7 @@ export default function WeatherForecast(props) {
                         </Box3>
                   </ForecastBox>
                 )}
-            <ForecastBtn onClick={forecastShow}>예보</ForecastBtn>
+            {/* <ForecastBtn onClick={forecastShow}>예보</ForecastBtn> */}
         </>
     )
 }

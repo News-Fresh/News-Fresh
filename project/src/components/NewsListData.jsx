@@ -86,13 +86,13 @@ const NewsText = styled.span`
   }
 `;
 const NewsListData = () => {
+
   return (
     <>
       {/* {currentPosts && count > 0 ? ( */}
       <NewsItemBlock>
         <LogoIcon src={Icon} alt="icon" />
         <NewsText>Today News</NewsText>
-
         {dummy.data.map((v) => (
           <NewsItemJson key={v.url} article={v} />
         ))}

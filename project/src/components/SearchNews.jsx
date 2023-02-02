@@ -13,7 +13,7 @@ const Search = styled.input`
   gap: 8px;
 
   position: absolute;
-  width: 30%;
+  width: 40%;
   height: 30px;
   right: 50px;
   top: 80px;
@@ -277,13 +277,13 @@ export default function Weather() {
 
   // const url = `https://newsapi.org/v2/everything?q=${search}&from=2023-02-01&sortBy=popularity&apiKey=dc5d90593807448a8ac39ac9a3571a51`;
   const url = `https://newsapi.org/v2/everything?q=${search}&from=2023-02-01&sortBy=popularity&apiKey=41a85db10eab456d8e732c5685e33b2a`;
-  console.log("result", result.length)
-
+  
   const onSearch = (e) => {
     console.log(e.target.value);
     setSearch(e.target.value);
   };
-
+  
+  console.log("result는 어디부터인가", result)
   //검색엔진버튼 눌러서 화면전환
   const SearchEnd = () => {
     setResult([]);

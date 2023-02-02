@@ -35,8 +35,8 @@ const WeatherBox = styled.div`
   }
   @media screen and (max-width: 768px) {
     width: 20rem;
-    left: 10%;
-    top: 650px;
+    left: 23%;
+    top: 700px;
     height: 450px;
   }
 `;
@@ -93,15 +93,13 @@ const WeatherText = styled.span`
     font-size: 15px;
   }
 `;
-const City = styled.span`
-  line-height: 20px;
+const City = styled.p`
+  line-height: 1%;
   text-align: center;
   font-family: "Poppins";
   font-style: normal;
   font-weight: 600;
   font-size: 15px;
-
-  letter-spacing: -0.512518px;
   color: white;
   @media screen and (max-width: 768px) {
     font-size: 15px;
@@ -175,7 +173,6 @@ const WeatherBtn = styled.button`
   font-weight: 700;
   font-family: 'Poppins';
   font-style: normal;
-  z-index: 1;
   background: #c4dea3;
   border-radius: 5px;
   border: none;
@@ -194,20 +191,20 @@ export default function Weather() {
   const API_KEY = "4281729cba61323b40e791c6036334ed";
   const url = `https://api.openweathermap.org/data/2.5/weather?q=Seoul&appid=${API_KEY}`;
   const [result, setResult] = useState({});
-  const [seoultemp, setSeoultemp] = useState({});
 
-  // useEffect(() => {
+
+  useEffect(() => {
 
   const weatherShow = async (Seoul) => {
-    const data = await axios({
-      method: "post",
+    const data =
+    await axios({
+      method: "get",
       url: url,
     });
     setResult(data);
-    console.log(data);
   };
-  // weatherShow();
-  // });
+  weatherShow();
+  }, []);
 
   return (
     <>
@@ -216,7 +213,7 @@ export default function Weather() {
         <WeatherText>Today Weather</WeatherText>
         {Object.keys(result).length !== 0 && (
           <Box>
-            <City className="city">Seoul Weather Report</City>
+            <City>Seoul Weather Report</City>
             <hr />
             <WeatherTime />
             <WeatherStatus className="sky">
@@ -232,7 +229,7 @@ export default function Weather() {
           </Box>
         )}
         <WeatherForecast />
-        <WeatherBtn onClick={weatherShow}>Today</WeatherBtn>
+        {/* <WeatherBtn onClick={weatherShow}>Today</WeatherBtn> */}
       </WeatherBox>
     </>
   );
