@@ -6,7 +6,7 @@ import NewsItem from "./NewsItem";
 import Icon from "../icons/logo.png";
 
 const NewsItemBlock = styled.div`
-  background-color: #e6ecf2;
+  background-color: #fffdf4;
   position: absolute;
   margin: auto;
   padding: auto;
@@ -156,9 +156,6 @@ const NewsList = ({ category }) => {
         {currentPosts.map((v) => (
           <NewsItem key={v.url} article={v} />
         ))}
-        {/* <Scrolldiv className={ScrollActive ? "smallBox fixed" : "smallBox"}>
-          {ScrollActive ? "I am fixed! ✨" : "I will be fixed! 😁"}
-        </Scrolldiv> */}
       </NewsItemBlock>
       <Paging page={currentpage} count={count} setPage={setPage} />
     </>
