@@ -43,7 +43,7 @@ const NewsItemBlock = styled.div`
     position: absolute;
     margin: 0;
     padding: 0;
-    left: 10%;
+    left: 23%;
     top: 18rem;
     max-width: 20rem;
   }

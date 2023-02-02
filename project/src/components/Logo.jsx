@@ -90,8 +90,9 @@ export default function Logo() {
   return (
     <>
       <div>
-
+        <a href="/">
         <LogoIcon src={Icon} alt="logo" />
+        </a>
         <LogoName href="">NewsFresh</LogoName>
       </div>
       {/* <Search type="text" placeholder="Search..." /> */}

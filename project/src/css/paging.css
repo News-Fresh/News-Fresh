@@ -1,8 +1,8 @@
 .pagination {
   display: flex;
   position: absolute;
-  top: 41rem;
-  left: 65%;
+  top: 60rem;
+  left: 70%;
   justify-content: center;
   margin-top: 1rem;
   font-family: "Nanum Myeongjo";
@@ -64,7 +64,7 @@ ul.pagination li a.active {
     position: relative;
     justify-content: center;
     top: 44rem;
-    left: 28rem;
+    left: 45%;
     width: 10rem;
     margin-top: 1rem;
     font-family: "Nanum Myeongjo";
@@ -87,8 +87,8 @@ ul.pagination li a.active {
     display: flex;
     position: relative;
     justify-content: center;
-    left: 23%;
-    top: 37.5rem;
+    left: 36%;
+    top: 39.5rem;
     width: 10rem;
     margin-top: 1rem;
     font-family: "Nanum Myeongjo";

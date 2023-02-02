@@ -10,8 +10,6 @@ import styled from "styled-components";
 import NewsList from "./components/NewsList";
 import SearchNews from "./components/SearchNews";
 import Weather from "./components/Weather";
-import NewsListData from "./components/NewsListData";
-import NewsItem from "./components/NewsItem";
 
 function App() {
   const [category, setCategory] = useState("all");
@@ -51,9 +49,7 @@ function App() {
   return (
     <div className="App">
       <Categories category={category} onSelect={onSelect} />
-      {/* <NewsList category={category} /> */}
-      {/* <NewsListJson /> */}
-      <NewsListData />
+      <NewsList category={category} />
       <SearchNews />
 
       {/* <NewsDiv>
