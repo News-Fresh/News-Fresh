@@ -91,30 +91,27 @@ const CategoriesBlock = styled.div`
 `;
 
 const Category = styled.div`
-  font-size: 1.125rem;
+  font-size: 1rem;
   display: flex;
   /* flex-direction: row; */
   /* align-self: center;
   /* flex: 1; */
-  justify-content: middle;
-  align-items: middle;
   flex-wrap: wrap;
-  /* position: relative;
-  top: 100rem;
-  left: 50rem; */
+  margin-left: 20px;
   cursor: pointer;
   white-space: pre;
   text-decoration: none;
   color: inherit;
   width: 8.5rem;
-  height: 6.5rem;
+  height: 5rem;
   border-radius: 10%;
   font-family: "Nanum Myeongjo";
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   font-weight: bold;
   justify-content: center;
   align-items: center;
-  background-color: #e6ecf2;
+  background-color: #fffdf4;
+  /* background-color: #e6ecf2; */
   @media screen and (max-width: 1210px) {
     font-size: 15px;
     width: 15%;
