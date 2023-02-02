@@ -20,7 +20,7 @@ function App() {
     position: absolute;
     margin: auto;
     padding: auto;
-    left: 54%;
+    left: 50%;
     top: 42%;
     border-radius: 4%;
     width: 43%;

@@ -13,7 +13,7 @@ const Search = styled.input`
   gap: 8px;
 
   position: absolute;
-  width: 40%;
+  width: 30%;
   height: 30px;
   right: 50px;
   top: 80px;
@@ -54,12 +54,38 @@ const SearchBtn = styled.button`
     left: 70%;
   }
 `;
+
+const ExitBtn = styled.button`
+  
+  flex-direction: row;
+  position: absolute;
+  width: 20%;
+  height: 50px;
+  right: 50px;
+  top: 30px;
+  color: black;
+  font-weight: 700;
+  font-family: 'Poppins';
+  font-style: normal;
+  z-index: 1;
+  background: white;
+  border-radius: 15px;
+  border: none;
+  @media screen and (max-width: 1210px) {
+    right: 14%;
+    top: 150px;
+  }
+  @media screen and (max-width: 768px) {
+    left: 70%;
+  }
+`;
+
 const NewsItemBlock = styled.div`
   background-color: #fffdf4;
   position: absolute;
   margin: auto;
   padding: auto;
-  left: 54%;
+  left: 55%;
   top: 35%;
   border-radius: 4%;
   max-width: 45%;
@@ -248,12 +274,20 @@ export default function Weather() {
   // const [postPerPage] = useState(2); //페이지당 아이템 개수
   // const [count, setCount] = useState(0);
   // const query = search === "" ? "" : `&search=${search}`;
-  const url = `https://newsapi.org/v2/everything?q=${search}&from=2023-02-01&sortBy=popularity&apiKey=dc5d90593807448a8ac39ac9a3571a51`;
-  console.log("result", result.length);
+
+  // const url = `https://newsapi.org/v2/everything?q=${search}&from=2023-02-01&sortBy=popularity&apiKey=dc5d90593807448a8ac39ac9a3571a51`;
+  const url = `https://newsapi.org/v2/everything?q=${search}&from=2023-02-01&sortBy=popularity&apiKey=41a85db10eab456d8e732c5685e33b2a`;
+  console.log("result", result.length)
+
   const onSearch = (e) => {
     console.log(e.target.value);
     setSearch(e.target.value);
   };
+
+  //검색엔진버튼 눌러서 화면전환
+  const SearchEnd = () => {
+    setResult([]);
+  }
 
   // useEffect(() => {
   const NewsShow = async () => {
@@ -301,32 +335,31 @@ export default function Weather() {
     return "null";
   }
 
-  return (
-    <>
-      <Search type="text" placeholder="Search..." onChange={onSearch} />
-      <SearchBtn onClick={NewsShow}>검색</SearchBtn>
-      {/* <SearchBtn onClick={stylechange}>올라가자</SearchBtn> */}
-      {
-        result.length === 0 ? (
-          ""
-        ) : (
-          <NewsItemBlock>
-            <LogoIcon src={Icon} alt="icon" />
-            <NewsText>News 검색결과</NewsText>
-            {/* {Object.keys(result).length !== 0 && ( */}
-            <SearchNewsItemBlock>
-              <div>
-                {result &&
-                  result.map((v) => <NewsItem key={v.url} article={v} />)}
-              </div>
-              {/* <Temperature className="temperature">{Math.round(((result.data.main.temp - 273.15) * 10))/10}℃</Temperature> */}
-              {/* <Weatherimg src={result.data.weather[0].main = 'clear' ? clear : 'bad'} alt="" /> */}
-            </SearchNewsItemBlock>
-          </NewsItemBlock>
-        )
-        // : ''
-      }
-      {/* )} */}
-    </>
-  );
+    return(
+        <> 
+                <Search type="text" placeholder="Search..." onChange={onSearch}/>
+                <SearchBtn onClick={NewsShow}>검색</SearchBtn>
+                {/* <SearchBtn onClick={stylechange}>올라가자</SearchBtn> */}
+            {result.length !== 0 ?
+            // '' :
+            <NewsItemBlock>
+                <LogoIcon src={Icon} alt="icon" />
+                <NewsText>News 검색결과</NewsText>
+              <ExitBtn onClick={SearchEnd}>검색 엔진 종료</ExitBtn>
+                {/* {Object.keys(result).length !== 0 && ( */}
+                  <SearchNewsItemBlock>
+                    <div>
+                      {result && result.map((v) => (
+                    <NewsItem key={v.url} article={v} />
+                      ))}
+                  </div>
+                    {/* <Temperature className="temperature">{Math.round(((result.data.main.temp - 273.15) * 10))/10}℃</Temperature> */}
+                    {/* <Weatherimg src={result.data.weather[0].main = 'clear' ? clear : 'bad'} alt="" /> */}
+                  </SearchNewsItemBlock>
+            </NewsItemBlock>
+            : ''
+            }
+                {/* )} */}
+        </>
+    )
 }
