@@ -85,16 +85,14 @@ const NewsText = styled.span`
     font-size: 15px;
   }
 `;
-
 const NewsListData = () => {
-  
+
   return (
     <>
       {/* {currentPosts && count > 0 ? ( */}
       <NewsItemBlock>
         <LogoIcon src={Icon} alt="icon" />
         <NewsText>Today News</NewsText>
-        {dummy.data.length}
         {dummy.data.map((v) => (
           <NewsItemJson key={v.url} article={v} />
         ))}
