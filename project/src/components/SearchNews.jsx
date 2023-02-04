@@ -288,6 +288,11 @@ export default function Weather() {
   const SearchEnd = () => {
     setResult([]);
   }
+  const inputEnter = (e) => {
+    if(e.key =='Enter'){
+      NewsShow();
+    }
+  }
 
   // useEffect(() => {
   const NewsShow = async () => {
@@ -337,7 +342,7 @@ export default function Weather() {
 
     return(
         <> 
-                <Search type="text" placeholder="Search..." onChange={onSearch}/>
+                <Search type="text" placeholder="Search..." onChange={onSearch} onKeyPress={inputEnter}/>
                 <SearchBtn onClick={NewsShow}>검색</SearchBtn>
                 {/* <SearchBtn onClick={stylechange}>올라가자</SearchBtn> */}
             {result.length !== 0 ?
