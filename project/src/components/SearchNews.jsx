@@ -1,7 +1,8 @@
 import axios from "axios";
 import React, { useRef, useState, useEffect } from "react";
-import styled from "styled-components";
+import styled, {keyframes} from "styled-components";
 import Icon from "../icons/logo.png";
+import Loading from "../icons/loading.png";
 import NewsItem from "./NewsItem";
 import Paging from "./Paging";
 
@@ -79,6 +80,22 @@ const ExitBtn = styled.button`
     left: 70%;
   }
 `;
+
+const rotateImage = keyframes `
+100% {
+    transform: rotate(360deg);
+}
+`
+
+const LaodingImg = styled.img`
+position: absolute;
+top : 50%;
+left : 50%;
+transition: all 0.5s linear;
+animation : ${rotateImage} 6s linear infinite;
+transform-origin: 50% 50%;
+
+`
 
 const NewsItemBlock = styled.div`
   background-color: #fffdf4;
@@ -333,7 +350,7 @@ export default function Weather() {
 
   // 대기 중
   if (loading) {
-    return <NewsItemBlock>대기중입니다...</NewsItemBlock>;
+    return <NewsItemBlock><LaodingImg src={Loading} /></NewsItemBlock>;
   }
   // articles 값이 설정 안될경우 (null 오류방지)
   if (!result) {
