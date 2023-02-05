@@ -8,9 +8,9 @@ import clear from "../icons/clear.png";
 const ForecastBox = styled.div`
 position: absolute;
 width: 80%;
-height: 250px;
+height: 35%;
 top: 55%;
-left : 5%;
+left : 6%;
 padding : 8px;
 margin:10px;
 /* Color/White/WHITE */
@@ -26,7 +26,7 @@ background: linear-gradient(45deg, #9DCFFF, #3DB7CC);
 const Box1 = styled.div`
 position: absolute;
 width: 25%;
-height: 200px;
+height: 70%;
 top: 8%;
 left : 6%;
 margin:10px;
@@ -44,7 +44,7 @@ background: linear-gradient(45deg, #008299, #3DB7CC);
 const Box2 = styled.div`
 position: absolute;
 width: 25%;
-height: 200px;
+height: 70%;
 top: 8%;
 left : 37%;
 margin : 10px;
@@ -62,7 +62,7 @@ background: linear-gradient(45deg, #008299, #3DB7CC);
 const Box3 = styled.div`
 position: absolute;
 width: 25%;
-height: 200px;
+height: 70%;
 top: 8%;
 left : 68%;
 margin:10px;
@@ -94,9 +94,11 @@ text-align:center;
 font-family: 'Poppins';
 font-style: normal;
 font-weight: 600;
-font-size: 20px;
+font-size: 15px;
 line-height:15px;
-
+position : absolute;
+top: 23%;
+left : 40%;
 letter-spacing: -0.512518px;
 color: white;
   @media screen and (max-width: 1210px) {
@@ -112,9 +114,11 @@ text-align:center;
 font-family: 'Poppins';
 font-style: normal;
 font-weight: 700;
-font-size: 30px;
+font-size: 23px;
 line-height: 28px;
-
+position : absolute;
+top: 45%;
+left : 30%;
 color: white;
 @media screen and (max-width: 1210px) {
     font-size: 20px;
@@ -130,9 +134,11 @@ text-align:center;
 font-family: 'Poppins';
 font-style: normal;
 font-weight: 700;
-font-size: 15px;
+font-size: 10px;
 line-height: 40px;
-
+position : absolute;
+top: 25%;
+left : 40%;
 color: white;
 @media screen and (max-width: 1210px) {
     font-size:10px;
@@ -146,10 +152,10 @@ color: white;
 const Weatherimg = styled.img`
 position: absolute;
 height:30%;
-width: 60%;
+width: 50%;
 left: 23%;
 justify-content: center;
-top: 120px;
+top: 60%;
 padding-top : 10px;
 `
 
@@ -182,7 +188,7 @@ export default function WeatherForecast(props) {
   const url = `https://api.openweathermap.org/data/2.5/forecast?q=seoul&appid=${API_KEY}`;
   const [result, setResult] = useState({});
     
-  useEffect(() => {
+  // useEffect(() => {
       
     const forecastShow = async (Seoul)=> {
         const data = await axios({
@@ -191,8 +197,8 @@ export default function WeatherForecast(props) {
         })
         setResult(data);
     };
-    forecastShow();
-      }, [result, url]);
+    // forecastShow();
+    //   }, [result, url]);
     
     return(
         <>
@@ -263,7 +269,7 @@ export default function WeatherForecast(props) {
                         </Box3>
                   </ForecastBox>
                 )}
-            {/* <ForecastBtn onClick={forecastShow}>예보</ForecastBtn> */}
+            <ForecastBtn onClick={forecastShow}>예보</ForecastBtn>
         </>
     )
 }

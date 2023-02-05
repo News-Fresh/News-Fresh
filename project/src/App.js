@@ -53,9 +53,9 @@ function App() {
     <div className="App">
       {/* <Categories category={category} onSelect={onSelect} /> */}
       <NewsCategory />
-      {/* <NewsList category={category} /> */}
+      <NewsList category={category} />
       {/* <NewsListJson /> */}
-      <NewsListData />
+      {/* <NewsListData /> */}
       <SearchNews />
 
       {/* <NewsDiv>

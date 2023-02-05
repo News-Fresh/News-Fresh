@@ -49,7 +49,8 @@ const SearchBtn = styled.button`
   border: none;
   @media screen and (max-width: 1210px) {
     right: 14%;
-    top: 150px;
+    top: 153px;
+    height: 45px;
   }
   @media screen and (max-width: 768px) {
     left: 70%;
@@ -103,12 +104,12 @@ const NewsItemBlock = styled.div`
   margin: auto;
   padding: auto;
   left: 55%;
-  top: 35%;
+  top: 25%;
   border-radius: 4%;
   max-width: 45%;
   min-width: 45%;
-  max-height: 49%;
-  min-height: 49%;
+  max-height: 60%;
+  min-height: 60%;
   overflow: scroll;
   overflow-y: auto;
   /* overflow: hidden; */
@@ -282,6 +283,7 @@ const SearchNewsItemBlock = styled.div`
 
 export default function Weather() {
   const [search, setSearch] = useState({});
+  const [searchresult, setSearchresult] = useState(true);
   const [result, setResult] = useState([]);
   const [loading, setLoading] = useState(null);
   // const [currentPosts, setCurrentPosts] = useState(0); // 현재
@@ -296,13 +298,18 @@ export default function Weather() {
   const url = `https://newsapi.org/v2/everything?q=${search}&from=2023-02-01&sortBy=popularity&apiKey=41a85db10eab456d8e732c5685e33b2a`;
   
   const onSearch = (e) => {
-    console.log(e.target.value);
+    setSearchresult(false);
     setSearch(e.target.value);
+    console.log("로딩값",loading);
+    console.log("서치값",search);
+    console.log("결과값",searchresult);
   };
   
-  console.log("result는 어디부터인가", result)
   //검색엔진버튼 눌러서 화면전환
   const SearchEnd = () => {
+    //alert창이 떠서 처리해줌.
+    setLoading(null);
+    console.log("로딩값",loading);
     setResult([]);
   }
   const inputEnter = (e) => {
@@ -310,39 +317,39 @@ export default function Weather() {
       NewsShow();
     }
   }
-
+  
   // useEffect(() => {
-  const NewsShow = async () => {
-    // APi 호출 시간동안 보여줄 로딩바
-    setLoading(true);
-
-    // divStyle.current.style = 'display:inline;'
-    // console.log(divStyle.current.style.display);
-    // try catch문 에러 처리
-    try {
-      const res = await axios({
-        method: "get",
-        url: url,
-      });
-      setResult(res.data.articles);
-      console.log(res.data.articles);
-      console.log(res.data.articles[1]);
-      // setCurrentPosts(
-      //   res.data.articles?.slice(indexOfFirstPost, indexOfLastPost)
-      // );
-      // // setCount(res.data.articles?.length);
-      // setCurrentPosts(
-      //   res.data.articles?.slice(indexOfFirstPost, indexOfLastPost)
-      // );
-      // setIndexOfLastPost(currentpage * postPerPage); // 마지막 페이지의 개수 (한화면에 보여줄 마지막 페이지)
+    const NewsShow = async () => {
+      setSearchresult(true);
+      console.log("결과값",searchresult);
+      // APi 호출 시간동안 보여줄 로딩바
+      setLoading(true);
+      
+      // divStyle.current.style = 'display:inline;'
+      // console.log(divStyle.current.style.display);
+      // try catch문 에러 처리
+      try {
+        const res = await axios({
+          method: "get",
+          url: url,
+        });
+        setResult(res.data.articles);
+        // setCurrentPosts(
+          //   res.data.articles?.slice(indexOfFirstPost, indexOfLastPost)
+          // );
+          // // setCount(res.data.articles?.length);
+          // setCurrentPosts(
+            //   res.data.articles?.slice(indexOfFirstPost, indexOfLastPost)
+            // );
+            // setIndexOfLastPost(currentpage * postPerPage); // 마지막 페이지의 개수 (한화면에 보여줄 마지막 페이지)
       // setIndexOfFirstPost(indexOfLastPost - postPerPage); // 아이템의 첫번째 위치
       // console.log(res.data.articles?.slice(indexOfFirstPost, indexOfLastPost))
     } catch (e) {
-      console.log(e);
+      // console.log(e);
     }
     setLoading(false);
   };
-
+  
   //   NewsShow();
   // }, []);
   // weatherShow();
@@ -356,7 +363,6 @@ export default function Weather() {
   if (!result) {
     return "null";
   }
-
     return(
         <> 
                 <Search type="text" placeholder="Search..." onChange={onSearch} onKeyPress={inputEnter}/>
@@ -375,10 +381,9 @@ export default function Weather() {
                     <NewsItem key={v.url} article={v} />
                       ))}
                   </div>
-                    {/* <Temperature className="temperature">{Math.round(((result.data.main.temp - 273.15) * 10))/10}℃</Temperature> */}
-                    {/* <Weatherimg src={result.data.weather[0].main = 'clear' ? clear : 'bad'} alt="" /> */}
                   </SearchNewsItemBlock>
-            </NewsItemBlock>
+            </NewsItemBlock> : loading !== null && searchresult !== false ?
+            alert('검색 결과가 없습니다.') 
             : ''
             }
                 {/* )} */}
