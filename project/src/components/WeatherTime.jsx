@@ -10,7 +10,7 @@ top: 30%;
 font-family: 'Poppins';
 font-style: normal;
 font-weight: 700;
-font-size: 45px;
+font-size: 25px;
 line-height: 28px;
 
 color: white;

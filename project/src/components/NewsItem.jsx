@@ -5,7 +5,7 @@ const NewsItemBlock = styled.div`
   display: flex;
   font-family: "Nanum Myeongjo";
   text-align: center;
-  margin-top: 2rem;
+  margin-top: 4.5rem;
   /* padding-left: 1rem; */
   /* padding-bottom: 1rem; */
   padding: 2rem 1rem 0rem 1rem;

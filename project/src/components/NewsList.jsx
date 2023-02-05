@@ -11,12 +11,12 @@ const NewsItemBlock = styled.div`
   margin: auto;
   padding: auto;
   left: 55%;
-  top: 35%;
+  top: 25%;
   border-radius: 4%;
   max-width: 45%;
   min-width: 45%;
-  max-height: 49%;
-  min-height: 49%;
+  max-height: 60%;
+  min-height: 60%;
   overflow: scroll;
   overflow-y: auto;
   &::-webkit-scrollbar {
@@ -115,7 +115,6 @@ const NewsList = ({ category }) => {
         .then((res) => {
           // API 데이터 state 저장
           setArticles(res.data.articles);
-          console.log(res.data.articles);
           setCount(res.data.articles?.length);
           setIndexOfLastPost(currentpage * postPerPage); // 마지막 페이지의 개수 (한화면에 보여줄 마지막 페이지)
           setIndexOfFirstPost(indexOfLastPost - postPerPage); // 아이템의 첫번째 위치

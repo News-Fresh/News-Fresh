@@ -3,6 +3,7 @@ import React, { useRef, useState, useEffect } from "react";
 import styled from "styled-components";
 import Icon from "../icons/logo.png";
 import clear from "../icons/clear.png";
+import clouds from "../icons/clouds.png";
 import WeatherTime from "./WeatherTime";
 import WeatherForecast from "./WeatherForecast";
 
@@ -20,13 +21,13 @@ const WeatherBox = styled.div`
   margin: auto;
   padding: auto;
   left: 10%;
-  top: 35%;
+  top: 25%;
   border-radius: 4%;
   // max-width: 40%;
   // min-width: 40%;
-  max-height: 49%;
-  min-height: 49%;
-  overflow: scroll;
+  max-height: 60%;
+  min-height: 60%;
+  // overflow: scroll;
   overflow-y: auto;
   @media screen and (max-width: 1210px) {
     left: 30%;
@@ -113,7 +114,7 @@ const WeatherStatus = styled.div`
   font-family: "Poppins";
   font-style: normal;
   font-weight: 700;
-  font-size: 30px;
+  font-size: 15px;
   line-height: 28px;
 
   color: white;
@@ -132,7 +133,7 @@ const Temperature = styled.div`
   font-family: "Poppins";
   font-style: normal;
   font-weight: 700;
-  font-size: 45px;
+  font-size: 25px;
   line-height: 28px;
 
   color: white;
@@ -193,7 +194,7 @@ export default function Weather() {
   const [result, setResult] = useState({});
 
 
-  useEffect(() => {
+  // useEffect(() => {
 
   const weatherShow = async (Seoul) => {
     const data =
@@ -203,8 +204,8 @@ export default function Weather() {
     });
     setResult(data);
   };
-  weatherShow();
-  }, []);
+  // weatherShow();
+  // }, []);
 
   return (
     <>
@@ -223,13 +224,13 @@ export default function Weather() {
               {Math.round((result.data.main.temp - 273.15) * 10) / 10}℃
             </Temperature>
             <Weatherimg
-              src={(result.data.weather[0].main = "clear" ? clear : "bad")}
+              src={result.data.weather[0].main = `Clear` ? clear : clouds}
               alt=""
             />
           </Box>
         )}
         <WeatherForecast />
-        {/* <WeatherBtn onClick={weatherShow}>Today</WeatherBtn> */}
+        <WeatherBtn onClick={weatherShow}>Today</WeatherBtn>
       </WeatherBox>
     </>
   );
