@@ -184,7 +184,10 @@ const ForecastBtn = styled.button`
   }
 `;
 export default function WeatherForecast(props) {
-  const API_KEY = "ab9fd86fdb0d2bd4968a55bfa83cf03c"
+  const API_KEY =
+  // "ab9fd86fdb0d2bd4968a55bfa83cf03c"
+  // "c8fffee56b961e5df0d6af641bd1a6e3"
+  "242b309a31182dc5c37381b6642b796c"
   const url = `https://api.openweathermap.org/data/2.5/forecast?q=seoul&appid=${API_KEY}`;
   const [result, setResult] = useState({});
     
@@ -218,7 +221,10 @@ export default function WeatherForecast(props) {
                             +result.data.list[3].dt_txt[12]
                             +'시'}
                             </Time>
-                            <Weather className="sky">{result.data.list[3].weather[0].main}</Weather>
+                            <Weather className="sky">
+                              {/* {result.data.list[3].weather[0].main} */}
+                              clouds
+                              </Weather>
                             <Temperature className="temperature">{Math.round(((result.data.list[3].main.temp - 273.15) * 10))/10}℃</Temperature>
                             <Weatherimg src={
                                 result.data.list[3].weather[0].main = 'clouds' ? clouds : 
@@ -239,7 +245,10 @@ export default function WeatherForecast(props) {
                             +result.data.list[4].dt_txt[12]
                             +'시'}
                             </Time>
-                            <Weather className="sky">{result.data.list[4].weather[0].main}</Weather>
+                            <Weather className="sky">
+                              {/* {result.data.list[4].weather[0].main} */}
+                              clouds
+                              </Weather>
                             <Temperature className="temperature">{Math.round(((result.data.list[4].main.temp - 273.15) * 10))/10}℃</Temperature>
                             <Weatherimg src={
                                 result.data.list[4].weather[0].main = 'clouds' ? clouds : 
@@ -260,7 +269,10 @@ export default function WeatherForecast(props) {
                             +result.data.list[5].dt_txt[12]
                             +'시'}
                             </Time>
-                            <Weather className="sky">{result.data.list[5].weather[0].main}</Weather>
+                            <Weather className="sky">
+                              {/* {result.data.list[5].weather[0].main} */}
+                              clouds
+                              </Weather>
                             <Temperature className="temperature">{Math.round(((result.data.list[5].main.temp - 273.15) * 10))/10}℃</Temperature>
                             <Weatherimg src={
                                 result.data.list[5].weather[0].main = 'clouds' ? clouds : 

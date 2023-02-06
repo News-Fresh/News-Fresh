@@ -13,6 +13,7 @@ import Weather from "./components/Weather";
 import NewsListData from "./components/NewsListData";
 import NewsItem from "./components/NewsItem";
 import NewsCategory from "./components/NewsCategory";
+import SearchNewsData from "./components/SearchNewsData";
 
 function App() {
   const [category, setCategory] = useState("all");
@@ -51,12 +52,13 @@ function App() {
   `;
   return (
     <div className="App">
-      {/* <Categories category={category} onSelect={onSelect} /> */}
-      <NewsCategory />
+      <Categories category={category} onSelect={onSelect} />
+      {/* <NewsCategory /> */}
       <NewsList category={category} />
       {/* <NewsListJson /> */}
       {/* <NewsListData /> */}
       <SearchNews />
+      {/* <SearchNewsData /> */}
 
       {/* <NewsDiv>
         <NewsList category={category} />
