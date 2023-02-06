@@ -114,7 +114,22 @@ const PineappleIcon = styled.img`
 `;
 export default function Menubar() {
   // useState를 사용하여 open상태를 변경한다. (open일때 true로 만들어 열리는 방식)
+  const [modalOpen1, setModalOpen1] = useState(false);
+  const [modalOpen2, setModalOpen2] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
+  const openModal1 = () => {
+    setModalOpen1(true);
+  };
+  const closeModal1 = () => {
+    setModalOpen1(false);
+  };
+  const openModal2 = () => {
+    setModalOpen2(true);
+  };
+  const closeModal2 = () => {
+    setModalOpen2(false);
+  };
+
   const openModal = () => {
     setModalOpen(true);
   };
@@ -124,7 +139,36 @@ export default function Menubar() {
   return (
     <>
       <Menu>
-        <AppleIcon src={apple} alt="apple" onClick={openModal} />
+        <AppleIcon src={apple} alt="apple" onClick={openModal1} />
+
+        {/* header 부분에 텍스트를 입력한다. */}
+        <Modal open={modalOpen1} close={closeModal1} header="Developer Information">
+        {/* Modal.js <main> {props.children} </main>에 내용이 입력된다. 리액트 함수형 모달
+        팝업창입니다. 쉽게 만들 수 있어요. 같이 만들어봐요! */}
+        NEWS FRESH란?
+        <hr />
+        <h1>바쁜 현대인에게 신선한 뉴스를!
+          <br />
+        NEWS 및 날씨를 FRESH하게 🍏</h1>
+        </Modal>
+
+        <GrapeIcon src={grape}  onClick={openModal2}/>
+        
+        {/* header 부분에 텍스트를 입력한다. */}
+        <Modal open={modalOpen2} close={closeModal2} header="Developer Information">
+        {/* Modal.js <main> {props.children} </main>에 내용이 입력된다. 리액트 함수형 모달
+        팝업창입니다. 쉽게 만들 수 있어요. 같이 만들어봐요! */}
+        개발목적
+        <hr />
+        <h1>다양한 API를 적극 활용하여,
+          <br />
+           실시간 정보를 가져오는데 주력하였습니다!</h1>
+        </Modal>
+
+        <WatermelonIcon src={watermelon} />
+
+        <PineappleIcon src={pineapple} onClick={openModal}/>
+
         {/* header 부분에 텍스트를 입력한다. */}
         <Modal open={modalOpen} close={closeModal} header="Developer Information">
         {/* Modal.js <main> {props.children} </main>에 내용이 입력된다. 리액트 함수형 모달
@@ -140,9 +184,7 @@ export default function Menubar() {
         <br />
         GitHub <a href="https://github.com/hiii-young">https://github.com/hiii-young</a>
       </Modal>
-        <GrapeIcon src={grape}  />
-        <WatermelonIcon src={watermelon} />
-        <PineappleIcon src={pineapple} />
+
       </Menu>
       <BarStyle htmlFor="icon">
         <Bar1 />

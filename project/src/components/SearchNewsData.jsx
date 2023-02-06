@@ -5,18 +5,20 @@ import Icon from "../icons/logo.png";
 import Loading from "../icons/loading.png";
 import NewsItem from "./NewsItem";
 import Paging from "./Paging";
+import dummy from "../db/data.json";
 
 const Searchdiv = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
+  padding: 10px 20px;
   gap: 8px;
 
   position: absolute;
   width: 40%;
   height: 30px;
   right: 50px;
-  top: 95px;
+  top: 80px;
   border-radius: 22px 0 0 22px;
   /* background: #cde3b2; */
   border: none;
@@ -36,13 +38,13 @@ const Search = styled.input`
   padding: 10px 20px;
   gap: 8px;
   position: relative;
-  width: 100%;
+  width: 80%;
   height: 30px;
   left: 1px;
   /* top: 80px; */
 
   background: #cde3b2;
-  border-radius: 22px 0 0 22px;
+  border-radius: 22px;
   border: none;
   @media screen and (max-width: 1210px) {
     /* left: 170px;
@@ -52,16 +54,14 @@ const Search = styled.input`
   @media screen and (max-width: 768px) {
     /* left: 15%; */
     width: 75%;
-  }  &:focus {
-    outline: none;
   }
 `;
 const SearchBtn = styled.button`
   flex-direction: row;
   position: relative;
-  width: 80px;
-  height: 50px;
-  right: 5%;
+  width: 60px;
+  height: 42px;
+  right: 8%;
   /* top: 80px; */
   color: white;
   font-weight: 700;
@@ -69,7 +69,7 @@ const SearchBtn = styled.button`
   font-style: normal;
   z-index: 1;
   background: green;
-  border-radius: 0 22px 22px 0;
+  border-radius: 22px;
   border: none;
 `;
 
@@ -297,11 +297,12 @@ const SearchNewsItemBlock = styled.div`
   }
 `;
 
-export default function SearchNews() {
+export default function SearchNewsData() {
   const [search, setSearch] = useState({});
   const [searchresult, setSearchresult] = useState(true);
   const [result, setResult] = useState([]);
   const [loading, setLoading] = useState(null);
+  const [dataarray, setDataarray] = useState([]);
   // const [currentPosts, setCurrentPosts] = useState(0); // 현재
   // const [indexOfFirstPost, setIndexOfFirstPost] = useState(0); // 처음 포스트
   // const [indexOfLastPost, setIndexOfLastPost] = useState(0); // 마지막 포스트
@@ -335,7 +336,10 @@ export default function SearchNews() {
   }
   
   // useEffect(() => {
-    const NewsShow = async () => {
+    const NewsShow = 
+    // async
+     () => {
+      
       setSearchresult(true);
       console.log("결과값",searchresult);
       // APi 호출 시간동안 보여줄 로딩바
@@ -345,11 +349,24 @@ export default function SearchNews() {
       // console.log(divStyle.current.style.display);
       // try catch문 에러 처리
       try {
-        const res = await axios({
-          method: "get",
-          url: url,
-        });
-        setResult(res.data.articles);
+        console.log('길이',dummy.data.length);
+        console.log('결과',dataarray);
+        for (let i = 0; i < dummy.data.length; i ++){
+          console.log('확인',i);
+        if(dummy.data[i].description.includes(search) === true) 
+        setDataarray( [...dataarray, dummy.data[i]])
+        
+        
+        setResult(dataarray);
+      }
+        //***************얘를 배열에 추가하는걸 찾기 */
+
+
+        // const res = await axios({
+        //   method: "get",
+        //   url: url,
+        // });
+
         // setCurrentPosts(
           //   res.data.articles?.slice(indexOfFirstPost, indexOfLastPost)
           // );

@@ -13,6 +13,7 @@ import Weather from "./components/Weather";
 import NewsListData from "./components/NewsListData";
 import NewsItem from "./components/NewsItem";
 import NewsCategory from "./components/NewsCategory";
+import SearchNewsData from "./components/SearchNewsData";
 import NewsList2 from "./components/NewsList2";
 
 function App() {
@@ -25,8 +26,11 @@ function App() {
       <Categories category={category} onSelect={onSelect} />
       {/* <NewsCategory category={category} onSelect={onSelect} /> */}
       {/* <NewsListData category={category} /> */}
-      <NewsList category={category} />
       <SearchNews />
+      {/* <SearchNewsData /> */}
+      {/* <NewsDiv>
+        <NewsList category={category} />
+      </NewsDiv> */}
       {/* 뉴스 더미용 돌리기 - 페이지네이션만 누르자 */}
       <NewsList2 category={category} />
       <Menubar />

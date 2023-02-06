@@ -12,7 +12,7 @@ const NewsItemBlock = styled.div`
   margin: auto;
   padding: auto;
   left: 55%;
-  top: 25%;
+  top: 30%;
   border-radius: 4%;
   max-width: 45%;
   min-width: 45%;
