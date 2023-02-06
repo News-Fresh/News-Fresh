@@ -186,12 +186,22 @@ const ForecastBtn = styled.button`
 export default function WeatherForecast(props) {
   const API_KEY =
   // "ab9fd86fdb0d2bd4968a55bfa83cf03c"
-  // "c8fffee56b961e5df0d6af641bd1a6e3"
-  "242b309a31182dc5c37381b6642b796c"
+  "c8fffee56b961e5df0d6af641bd1a6e3"
+  // "242b309a31182dc5c37381b6642b796c"
   const url = `https://api.openweathermap.org/data/2.5/forecast?q=seoul&appid=${API_KEY}`;
   const [result, setResult] = useState({});
-    
-  // useEffect(() => {
+  const [weather1, setWeather1] = useState();
+  const [weather2, setWeather2] = useState();
+  const [weather3, setWeather3] = useState();
+  const [icon1, setIcon1] = useState();
+  const [icon2, setIcon2] = useState();
+  const [icon3, setIcon3] = useState();
+  
+  let iconurl1 = "http://openweathermap.org/img/w/" + icon1 + ".png";
+  let iconurl2 = "http://openweathermap.org/img/w/" + icon2 + ".png";
+  let iconurl3 = "http://openweathermap.org/img/w/" + icon3 + ".png";
+  
+  useEffect(() => {
       
     const forecastShow = async (Seoul)=> {
         const data = await axios({
@@ -199,9 +209,17 @@ export default function WeatherForecast(props) {
             url : url
         })
         setResult(data);
+        console.log('예보',data);
+        setWeather1(data.data.list[3].weather[0].main);
+        setWeather2(data.data.list[4].weather[0].main);
+        setWeather3(data.data.list[5].weather[0].main);
+        setIcon1(data.data.list[3].weather[0].icon);
+        setIcon2(data.data.list[4].weather[0].icon);
+        setIcon3(data.data.list[5].weather[0].icon);
+        // setIcon(data.data.weather[0].icon);
     };
-    // forecastShow();
-    //   }, [result, url]);
+    forecastShow();
+      }, []);
     
     return(
         <>
@@ -223,12 +241,13 @@ export default function WeatherForecast(props) {
                             </Time>
                             <Weather className="sky">
                               {/* {result.data.list[3].weather[0].main} */}
-                              clouds
+                              {weather1}
                               </Weather>
                             <Temperature className="temperature">{Math.round(((result.data.list[3].main.temp - 273.15) * 10))/10}℃</Temperature>
                             <Weatherimg src={
-                                result.data.list[3].weather[0].main = 'clouds' ? clouds : 
-                                result.data.list[3].weather[0].main = 'clear' ? clear : 'clear'
+                                // result.data.list[3].weather[0].main = 'clouds' ? clouds : 
+                                // result.data.list[3].weather[0].main = 'clear' ? clear : 'clear'
+                                iconurl1
                                 } alt="날씨" />
                         </Box1>
                         <Box2>
@@ -247,12 +266,13 @@ export default function WeatherForecast(props) {
                             </Time>
                             <Weather className="sky">
                               {/* {result.data.list[4].weather[0].main} */}
-                              clouds
+                              {weather2}
                               </Weather>
                             <Temperature className="temperature">{Math.round(((result.data.list[4].main.temp - 273.15) * 10))/10}℃</Temperature>
                             <Weatherimg src={
-                                result.data.list[4].weather[0].main = 'clouds' ? clouds : 
-                                result.data.list[4].weather[0].main = 'clear' ? clear : 'clear'
+                                // result.data.list[4].weather[0].main = 'clouds' ? clouds : 
+                                // result.data.list[4].weather[0].main = 'clear' ? clear : 'clear'
+                                iconurl2
                                 } alt="날씨" />
                         </Box2>
                         <Box3>
@@ -271,17 +291,18 @@ export default function WeatherForecast(props) {
                             </Time>
                             <Weather className="sky">
                               {/* {result.data.list[5].weather[0].main} */}
-                              clouds
+                              {weather3}
                               </Weather>
                             <Temperature className="temperature">{Math.round(((result.data.list[5].main.temp - 273.15) * 10))/10}℃</Temperature>
                             <Weatherimg src={
-                                result.data.list[5].weather[0].main = 'clouds' ? clouds : 
-                                result.data.list[5].weather[0].main = 'clear' ? clear : 'clear'
+                                // result.data.list[5].weather[0].main = 'clouds' ? clouds : 
+                                // result.data.list[5].weather[0].main = 'clear' ? clear : 'clear'
+                                iconurl3
                                 } alt="날씨" />
                         </Box3>
                   </ForecastBox>
                 )}
-            <ForecastBtn onClick={forecastShow}>예보</ForecastBtn>
+            {/* <ForecastBtn onClick={forecastShow}>예보</ForecastBtn> */}
         </>
     )
 }

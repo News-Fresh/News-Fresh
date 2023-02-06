@@ -28,9 +28,9 @@ function App() {
       {/* <NewsListData category={category} /> */}
       <SearchNews />
       {/* <SearchNewsData /> */}
-      {/* <NewsDiv>
+      {/* <NewsDiv> */}
         <NewsList category={category} />
-      </NewsDiv> */}
+      {/* </NewsDiv> */}
       {/* 뉴스 더미용 돌리기 - 페이지네이션만 누르자 */}
       {/* <NewsList2 category={category} /> */}
       <Menubar />

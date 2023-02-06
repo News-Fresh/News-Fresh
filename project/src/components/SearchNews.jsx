@@ -119,15 +119,16 @@ const NewsItemBlock = styled.div`
   position: absolute;
   margin: auto;
   padding: auto;
-  left: 55%;
-  top: 25%;
+  left: 53%;
+  top: 23%;
   border-radius: 4%;
   max-width: 45%;
   min-width: 45%;
-  max-height: 60%;
-  min-height: 60%;
+  max-height: 72%;
+  min-height: 72%;
   overflow: scroll;
   overflow-y: auto;
+  z-index:1;
   /* overflow: hidden; */
   /* display: none; */
   &::-webkit-scrollbar {
