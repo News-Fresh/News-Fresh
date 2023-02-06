@@ -5,6 +5,7 @@ import Paging from "./Paging";
 import NewsItem from "./NewsItem";
 import Icon from "../icons/logo.png";
 import dummy from "../db/data.json";
+import NewsCategory from "./NewsCategory";
 import NewsItemJson from "./NewsItemJson";
 
 const NewsItemBlock = styled.div`
@@ -86,7 +87,6 @@ const NewsText = styled.span`
   }
 `;
 const NewsListData = () => {
-
   return (
     <>
       {/* {currentPosts && count > 0 ? ( */}

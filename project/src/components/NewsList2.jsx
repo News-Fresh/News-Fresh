@@ -85,7 +85,7 @@ const NewsText = styled.span`
   }
 `;
 
-const NewsList = ({ category }) => {
+const NewsList2 = ({ category }) => {
   // const [items, setItems] = useState([]); //리스트에 나타낼 아이템
   const [count, setCount] = useState(0); //아이템 총 개수
   const [currentpage, setCurrentpage] = useState(1); //현재페이지
@@ -98,6 +98,7 @@ const NewsList = ({ category }) => {
   const [articles, setArticles] = useState(null); //api용
   const [loading, setLoading] = useState(null);
 
+  //useEffect: 처음 렌더될 때 뉴스들의 데이터를 axios로 받아옴
   useEffect(() => {
     // async 비동기 함수호출
     const fetchData = async () => {
@@ -106,30 +107,59 @@ const NewsList = ({ category }) => {
       // try catch문 에러 처리
       // try {
       // props로 넘어온 state로
-      const query = category === "all" ? "" : `&category=${category}`;
-      axios
-        .get(
-          // `https://newsapi.org/v2/top-headlines?country=kr${query}&apiKey=a5ee1fb9d67341ec941a37c89cfc3283`
+      // const query = category === "all" ? "" : `&category=${category}`;
 
-          `https://newsapi.org/v2/top-headlines?country=kr${query}&apiKey=aa6dae99785d48dfa798e3c8b62dd365`
-        )
-        .then((res) => {
-          // API 데이터 state 저장
-          console.log(res);
-          setArticles(res.data.articles);
-          setCount(res.data.articles?.length);
-          setIndexOfLastPost(currentpage * postPerPage); // 마지막 페이지의 개수 (한화면에 보여줄 마지막 페이지)
-          setIndexOfFirstPost(indexOfLastPost - postPerPage); // 아이템의 첫번째 위치
-          setCurrentPosts(
-            res.data.articles?.slice(indexOfFirstPost, indexOfLastPost)
-          ); // 아티클 배열에 있는 거를 나눠서 가져오는 거
-        })
-        .catch((err) => {
-          console.log(err);
-        });
+      // }
+      // var array = dummy.data;
+      // console.log(array);
+      // const promises = dummy.data.map(async (category) => {
+      //   return await delay().then(() => category);
+      // });
+
+      // for (let i = 0; i < dummy.data.length; i++) {
+      //   //20까지 늘어나며 체크
+      //   // console.log(dummy.data);
+      //   // console.log(count);
+      //   if (category !== dummy.data[i]?.category) {
+      //     // array[i].pop();
+      //     dummy.data.splice(i, 1);
+      //     i--;
+      //     // console.log(dummy.data);
+      //     // console.log(count);
+      //   }
+      // }
+      // delay(1000);
+      // await setTimeout(1000);
+      setArticles(dummy.data); //articles에 데이터를 담는다.
+      setCount(dummy.data?.length);
+      setIndexOfLastPost(currentpage * postPerPage);
+      setIndexOfFirstPost(indexOfLastPost - postPerPage);
+      setCurrentPosts(dummy.data?.slice(indexOfFirstPost, indexOfLastPost));
+
+      // array = dummy.data;
+      // axios
+      //   .get(
+      //     // `https://newsapi.org/v2/top-headlines?country=kr${query}&apiKey=a5ee1fb9d67341ec941a37c89cfc3283`
+
+      //     `https://newsapi.org/v2/top-headlines?country=kr${query}&apiKey=aa6dae99785d48dfa798e3c8b62dd365`
+      //   )
+      //   .then((res) => {
+      //     // API 데이터 state 저장
+      //     console.log(res);
+      //     setArticles(res.data.articles);
+      //     setCount(res.data.articles?.length);
+      //     setIndexOfLastPost(currentpage * postPerPage); // 마지막 페이지의 개수 (한화면에 보여줄 마지막 페이지)
+      //     setIndexOfFirstPost(indexOfLastPost - postPerPage); // 아이템의 첫번째 위치
+      //     setCurrentPosts(
+      //       res.data.articles?.slice(indexOfFirstPost, indexOfLastPost)
+      //     ); // 아티클 배열에 있는 거를 나눠서 가져오는 거
+      //   })
+      //   .catch((err) => {
+      //     console.log(err);
+      //   });
       //로딩중
       setLoading(false);
-      console.log(count);
+      // console.log(count);
     };
     fetchData();
   }, [category, currentpage, indexOfFirstPost, indexOfLastPost, postPerPage]);
@@ -164,4 +194,4 @@ const NewsList = ({ category }) => {
   );
 };
 
-export default NewsList;
+export default NewsList2;
