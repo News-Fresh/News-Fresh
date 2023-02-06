@@ -9,7 +9,7 @@ import WeatherForecast from "./WeatherForecast";
 
 const WeatherBox = styled.div`
   // position: absolute;
-  width: 43%;
+  width: 40%;
   // height:750px;
   // right: 50px;
   // top: 300px;
@@ -21,12 +21,12 @@ const WeatherBox = styled.div`
   margin: auto;
   padding: auto;
   left: 10%;
-  top: 30%;
+  top: 23%;
   border-radius: 4%;
   // max-width: 40%;
   // min-width: 40%;
-  max-height: 60%;
-  min-height: 60%;
+  max-height: 72.5%;
+  min-height: 72.5%;
   // overflow: scroll;
   overflow-y: auto;
   @media screen and (max-width: 1210px) {
@@ -148,7 +148,7 @@ const Weatherimg = styled.img`
   position: absolute;
   height: 50%;
   left: 15%;
-  top: 25%;
+  top: 30%;
   padding-top: 10px;
   border-radius: 10px;
   @media screen and (max-width: 1210px) {
@@ -190,16 +190,22 @@ const WeatherBtn = styled.button`
 
 export default function Weather() {
   const API_KEY = 
-  // "4281729cba61323b40e791c6036334ed"
+  "4281729cba61323b40e791c6036334ed"
   // "ab9fd86fdb0d2bd4968a55bfa83cf03c"
   // "c8fffee56b961e5df0d6af641bd1a6e3"
-  "242b309a31182dc5c37381b6642b796c"
+  // "242b309a31182dc5c37381b6642b796c"
   ;
   const url = `https://api.openweathermap.org/data/2.5/weather?q=Seoul&appid=${API_KEY}`;
   const [result, setResult] = useState({});
+  const [weather, setWeather] = useState();
+  const [icon, setIcon] = useState();
+
+  // const weatherRendering = () => {
+    let iconurl = "http://openweathermap.org/img/w/" + icon + ".png";
+  // }
 
 
-  // useEffect(() => {
+  useEffect(() => {
 
   const weatherShow = async (Seoul) => {
     const data =
@@ -208,9 +214,13 @@ export default function Weather() {
       url: url,
     });
     setResult(data);
+    setWeather(data.data.weather[0].main);
+    setIcon(data.data.weather[0].icon);
+    console.log(data.data.weather[0].main);
+    console.log(data.data.weather[0].icon);
   };
-  // weatherShow();
-  // }, []);
+  weatherShow();
+  }, []);
 
   return (
     <>
@@ -224,19 +234,20 @@ export default function Weather() {
             <WeatherTime />
             <WeatherStatus className="sky">
               {/* {result.data.weather[0].main} */}
-              clear
+              {weather}
             </WeatherStatus>
             <Temperature className="temperature">
               {Math.round((result.data.main.temp - 273.15) * 10) / 10}℃
             </Temperature>
             <Weatherimg
-              src={result.data.weather[0].main = `Clear` ? clear : clouds}
+              // src={result.data.weather[0].main = `Clear` ? clear : clouds}
+              src={iconurl}
               alt=""
             />
           </Box>
         )}
         <WeatherForecast />
-        <WeatherBtn onClick={weatherShow}>Today</WeatherBtn>
+        {/* <WeatherBtn onClick={weatherShow}>Today</WeatherBtn> */}
       </WeatherBox>
     </>
   );
