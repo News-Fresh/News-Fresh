@@ -2,6 +2,13 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import apple from "../icons/apple.png";
 import grape from "../icons/grape.png";
+import git from "../icons/git.png";
+import figma from "../icons/figma.png";
+import zeplin from "../icons/zeplin.png";
+import notion from "../icons/notion.png";
+import slack from "../icons/slcak.png";
+import js from "../icons/js.png";
+import react from "../icons/React-icon.svg.png";
 import watermelon from "../icons/watermelon.png";
 import pineapple from "../icons/pineapple.png";
 import Modal from "./Modal";
@@ -112,11 +119,17 @@ const PineappleIcon = styled.img`
     top: 12.5px;
   }
 `;
+
+const Modalimg = styled.img`
+  width: 10%;
+  height: 10%;
+`
 export default function Menubar() {
   // useState를 사용하여 open상태를 변경한다. (open일때 true로 만들어 열리는 방식)
   const [modalOpen1, setModalOpen1] = useState(false);
   const [modalOpen2, setModalOpen2] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
+  const [modalOpen3, setModalOpen3] = useState(false);
   const openModal1 = () => {
     setModalOpen1(true);
   };
@@ -130,6 +143,13 @@ export default function Menubar() {
     setModalOpen2(false);
   };
 
+  const openModal3 = () => {
+    setModalOpen3(true);
+  };
+  const closeModal3 = () => {
+    setModalOpen3(false);
+  };
+
   const openModal = () => {
     setModalOpen(true);
   };
@@ -140,13 +160,7 @@ export default function Menubar() {
     <>
       <Menu>
         <AppleIcon src={apple} alt="apple" onClick={openModal1} />
-
-        {/* header 부분에 텍스트를 입력한다. */}
-        <Modal open={modalOpen1} close={closeModal1} header="Developer Information">
-        {/* Modal.js <main> {props.children} </main>에 내용이 입력된다. 리액트 함수형 모달
-        팝업창입니다. 쉽게 만들 수 있어요. 같이 만들어봐요! */}
-        NEWS FRESH란?
-        <hr />
+        <Modal open={modalOpen1} close={closeModal1} header="NEWS FRESH란?">
         <h1>바쁜 현대인에게 신선한 뉴스를!
           <br />
         NEWS 및 날씨를 FRESH하게 🍏</h1>
@@ -154,18 +168,22 @@ export default function Menubar() {
 
         <GrapeIcon src={grape}  onClick={openModal2}/>
         
-        {/* header 부분에 텍스트를 입력한다. */}
-        <Modal open={modalOpen2} close={closeModal2} header="Developer Information">
-        {/* Modal.js <main> {props.children} </main>에 내용이 입력된다. 리액트 함수형 모달
-        팝업창입니다. 쉽게 만들 수 있어요. 같이 만들어봐요! */}
-        개발목적
-        <hr />
-        <h1>다양한 API를 적극 활용하여,
+        <Modal open={modalOpen2} close={closeModal2} header="개발목적">
+          다양한 API를 적극 활용하여,
           <br />
-           실시간 정보를 가져오는데 주력하였습니다!</h1>
+          실시간 정보를 가져오는데 주력하였습니다!
         </Modal>
 
-        <WatermelonIcon src={watermelon} />
+        <WatermelonIcon src={watermelon} onClick={openModal3}/>
+        <Modal open={modalOpen3} close={closeModal3} header="사용한 스택">
+          <Modalimg src={git} alt="" />
+          <Modalimg src={figma} alt="" />
+          <Modalimg src={zeplin} alt="" />
+          <Modalimg src={notion} alt="" />
+          <Modalimg src={slack} alt="" />
+          <Modalimg src={js} alt="" />
+          <Modalimg src={react} alt="" />
+        </Modal>
 
         <PineappleIcon src={pineapple} onClick={openModal}/>
 
