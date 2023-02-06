@@ -28,7 +28,7 @@ function App() {
       <NewsList category={category} />
       <SearchNews />
       {/* 뉴스 더미용 돌리기 - 페이지네이션만 누르자 */}
-      <NewsList2 category={category} />
+      {/* <NewsList2 category={category} /> */}
       <Menubar />
       <Logo />
       <Weather />
