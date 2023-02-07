@@ -18,6 +18,7 @@ border-radius: 27.2478px;
 background: linear-gradient(45deg, #9DCFFF, #3DB7CC);
 @media screen and (max-width: 1210px) {
   left: 5%;
+  top: 45%;
 }
 @media screen and (max-width: 768px) {
   left: 3%;
@@ -35,6 +36,8 @@ border-radius: 10px;
 background: linear-gradient(45deg, #008299, #3DB7CC);
 @media screen and (max-width: 1210px) {
   left: 2%;
+  height: 65%;
+  top:12%;
 }
 @media screen and (max-width: 768px) {
   left: 3%;
@@ -53,6 +56,8 @@ border-radius: 10px;
 background: linear-gradient(45deg, #008299, #3DB7CC);
 @media screen and (max-width: 1210px) {
   left: 35%;
+  height: 65%;
+  top:12%;
 }
 @media screen and (max-width: 768px) {
   left: 35%;
@@ -71,6 +76,8 @@ border-radius: 10px;
 background: linear-gradient(45deg, #008299, #3DB7CC);
 @media screen and (max-width: 1210px) {
   left: 68%;
+  height: 65%;
+  top:12%;
 }
 @media screen and (max-width: 768px) {
   left: 65%;
@@ -103,7 +110,9 @@ letter-spacing: -0.512518px;
 color: white;
   @media screen and (max-width: 1210px) {
     font-size:15px;
-    line-height:15px;}
+    line-height:15px;
+    left:34%;
+  }
     @media screen and (max-width: 768px) {
     line-height:3px;
     font-size:10px;
@@ -123,6 +132,7 @@ color: white;
 @media screen and (max-width: 1210px) {
     font-size: 20px;
     line-height: 20px;
+    left:25%;
 }
 @media screen and (max-width: 768px) {
     font-size: 15px;
@@ -143,6 +153,8 @@ color: white;
 @media screen and (max-width: 1210px) {
     font-size:10px;
     line-height: 20px;
+    top: 30%;
+    left: 32%;
 }
 @media screen and (max-width: 768px) {
       line-height: 20px;
