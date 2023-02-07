@@ -11,14 +11,13 @@ const Searchdiv = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-  padding: 10px 20px;
   gap: 8px;
 
   position: absolute;
   width: 40%;
   height: 30px;
   right: 50px;
-  top: 80px;
+  top: 95px;
   border-radius: 22px 0 0 22px;
   /* background: #cde3b2; */
   border: none;
@@ -38,13 +37,13 @@ const Search = styled.input`
   padding: 10px 20px;
   gap: 8px;
   position: relative;
-  width: 80%;
+  width: 100%;
   height: 30px;
   left: 1px;
   /* top: 80px; */
 
   background: #cde3b2;
-  border-radius: 22px;
+  border-radius: 22px 0 0 22px;
   border: none;
   @media screen and (max-width: 1210px) {
     /* left: 170px;
@@ -54,14 +53,16 @@ const Search = styled.input`
   @media screen and (max-width: 768px) {
     /* left: 15%; */
     width: 75%;
+  }  &:focus {
+    outline: none;
   }
 `;
 const SearchBtn = styled.button`
   flex-direction: row;
   position: relative;
-  width: 60px;
-  height: 42px;
-  right: 8%;
+  width: 80px;
+  height: 50px;
+  right: 5%;
   /* top: 80px; */
   color: white;
   font-weight: 700;
@@ -69,7 +70,7 @@ const SearchBtn = styled.button`
   font-style: normal;
   z-index: 1;
   background: green;
-  border-radius: 22px;
+  border-radius: 0 22px 22px 0;
   border: none;
 `;
 
@@ -119,15 +120,16 @@ const NewsItemBlock = styled.div`
   position: absolute;
   margin: auto;
   padding: auto;
-  left: 55%;
-  top: 25%;
+  left: 53%;
+  top: 23%;
   border-radius: 4%;
   max-width: 45%;
   min-width: 45%;
-  max-height: 60%;
-  min-height: 60%;
+  max-height: 72%;
+  min-height: 72%;
   overflow: scroll;
   overflow-y: auto;
+  z-index:1;
   /* overflow: hidden; */
   /* display: none; */
   &::-webkit-scrollbar {
@@ -296,7 +298,6 @@ const SearchNewsItemBlock = styled.div`
     max-height: 70%;
   }
 `;
-
 export default function SearchNewsData() {
   const [search, setSearch] = useState({});
   const [searchresult, setSearchresult] = useState(true);
