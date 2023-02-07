@@ -169,9 +169,11 @@ export default function Menubar() {
         <GrapeIcon src={grape}  onClick={openModal2}/>
         
         <Modal open={modalOpen2} close={closeModal2} header="개발목적">
+          <h1>
           다양한 API를 적극 활용하여,
           <br />
           실시간 정보를 가져오는데 주력하였습니다!
+          </h1>
         </Modal>
 
         <WatermelonIcon src={watermelon} onClick={openModal3}/>
