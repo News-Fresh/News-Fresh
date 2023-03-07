@@ -26,8 +26,8 @@ function App() {
       <Categories category={category} onSelect={onSelect} />
       {/* <NewsCategory category={category} onSelect={onSelect} /> */}
       {/* <NewsListData category={category} /> */}
-      <SearchNews />
-      {/* <SearchNewsData /> */}
+      {/* <SearchNews /> */}
+      <SearchNewsData />
       {/* <NewsDiv> */}
         {/* <NewsList category={category} /> */}
       {/* </NewsDiv> */}

@@ -312,33 +312,32 @@ export default function SearchNews() {
   // const query = search === "" ? "" : `&search=${search}`;
 
   // const url = `https://newsapi.org/v2/everything?q=${search}&from=2023-02-01&sortBy=popularity&apiKey=dc5d90593807448a8ac39ac9a3571a51`;
-  const url = `https://newsapi.org/v2/everything?q=${search}&from=2023-02-01&sortBy=popularity&apiKey=41a85db10eab456d8e732c5685e33b2a`;
+  const url = `https://newsapi.org/v2/everything?q=${search}&from=2023-03-07&sortBy=popularity&apiKey=41a85db10eab456d8e732c5685e33b2a`;
   
   const onSearch = (e) => {
     setSearchresult(false);
     setSearch(e.target.value);
-    console.log("로딩값",loading);
-    console.log("서치값",search);
-    console.log("결과값",searchresult);
   };
   
   //검색엔진버튼 눌러서 화면전환
   const SearchEnd = () => {
     //alert창이 떠서 처리해줌.
     setLoading(null);
-    console.log("로딩값",loading);
     setResult([]);
   }
+  //엔터키 누르면 검색
   const inputEnter = (e) => {
-    if(e.key =='Enter'){
+    if(e.key === 'Enter'){
       NewsShow();
     }
   }
-  
+
+  console.log('로딩값',loading);
+  console.log('서치',searchresult);
+  console.log('결과',result);
   // useEffect(() => {
     const NewsShow = async () => {
       setSearchresult(true);
-      console.log("결과값",searchresult);
       // APi 호출 시간동안 보여줄 로딩바
       setLoading(true);
       
@@ -351,6 +350,7 @@ export default function SearchNews() {
           url: url,
         });
         setResult(res.data.articles);
+        console.log("검색 후",res.data);
         // setCurrentPosts(
           //   res.data.articles?.slice(indexOfFirstPost, indexOfLastPost)
           // );
@@ -362,7 +362,7 @@ export default function SearchNews() {
       // setIndexOfFirstPost(indexOfLastPost - postPerPage); // 아이템의 첫번째 위치
       // console.log(res.data.articles?.slice(indexOfFirstPost, indexOfLastPost))
     } catch (e) {
-      // console.log(e);
+      console.log(e);
     }
     setLoading(false);
   };
@@ -401,8 +401,9 @@ export default function SearchNews() {
                       ))}
                   </div>
                   </SearchNewsItemBlock>
-            </NewsItemBlock> : loading !== null && searchresult !== false ?
-            alert('검색 결과가 없습니다.') 
+            </NewsItemBlock> 
+            // : loading !== null && searchresult !== false ?
+            // alert('검색 결과가 없습니다.') 
             : ''
             }
                 {/* )} */}
