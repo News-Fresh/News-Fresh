@@ -19,7 +19,6 @@ const Searchdiv = styled.div`
   right: 50px;
   top: 95px;
   border-radius: 22px 0 0 22px;
-  /* background: #cde3b2; */
   border: none;
   @media screen and (max-width: 1210px) {
     left: 170px;
@@ -40,18 +39,13 @@ const Search = styled.input`
   width: 100%;
   height: 30px;
   left: 1px;
-  /* top: 80px; */
 
   background: #cde3b2;
   border-radius: 22px 0 0 22px;
   border: none;
   @media screen and (max-width: 1210px) {
-    /* left: 170px;
-    top: 150px; */
-    /* width: 65%; */
   }
   @media screen and (max-width: 768px) {
-    /* left: 15%; */
     width: 75%;
   }  &:focus {
     outline: none;
@@ -63,7 +57,6 @@ const SearchBtn = styled.button`
   width: 80px;
   height: 50px;
   right: 5%;
-  /* top: 80px; */
   color: white;
   font-weight: 700;
   font-family: "Poppins";
@@ -130,8 +123,6 @@ const NewsItemBlock = styled.div`
   overflow: scroll;
   overflow-y: auto;
   z-index:1;
-  /* overflow: hidden; */
-  /* display: none; */
   &::-webkit-scrollbar {
     width: 12px;
     height: 0px;
@@ -144,7 +135,6 @@ const NewsItemBlock = styled.div`
     background-color: #eee;
     border-radius: 10px;
   }
-  /* overflow: hidden; */
   @media screen and (max-width: 1210px) {
     position: absolute;
     margin: 0;
@@ -185,11 +175,7 @@ const NewsText = styled.span`
   font-weight: 700;
   font-size: 17.9381px;
   line-height: 28px;
-  /* or 157% */
-
   letter-spacing: -0.512518px;
-
-  /* Black/B100 */
 
   color: #171717;
   @media screen and (max-width: 768px) {
@@ -204,12 +190,8 @@ const SearchNewsItemBlock = styled.div`
   font-family: "Nanum Myeongjo";
   text-align: center;
   margin-top: 2rem;
-  /* padding-left: 1rem; */
-  /* padding-bottom: 1rem; */
   padding: 2rem 1rem 0rem 1rem;
-  /* height: 6rem; */
   max-width: 90%;
-  /* overflow: hidden; */
   max-height: 70%;
   .thumbnail {
     img {
@@ -219,11 +201,6 @@ const SearchNewsItemBlock = styled.div`
       height: 4rem;
       object-fit: cover;
       border-radius: 10%;
-
-      /* @media screen and (max-width: 1210px) {
-        width: 7rem;
-        height: 6rem;
-      } */
     }
   }
   .contents {
@@ -242,7 +219,6 @@ const SearchNewsItemBlock = styled.div`
         font-weight: 850;
       }
       a {
-        /* color: block; */
         color: #47661f;
       }
       a:hover {
@@ -277,9 +253,7 @@ const SearchNewsItemBlock = styled.div`
     text-align: center;
     margin-top: 1rem;
     padding-left: 0.75rem;
-    /* padding-bottom: 1rem; */
     max-width: 90%;
-    /* overflow: hidden; */
     max-height: 70%;
     padding: 2rem 1rem 1rem 1rem;
   }
@@ -292,7 +266,6 @@ const SearchNewsItemBlock = styled.div`
     text-align: center;
     margin-top: 1rem;
     padding-left: 0.75rem;
-    /* padding-bottom: 1rem; */
     max-width: 90%;
     overflow: scroll;
     max-height: 70%;
@@ -304,90 +277,43 @@ export default function SearchNewsData() {
   const [result, setResult] = useState([]);
   const [loading, setLoading] = useState(null);
   const [dataarray, setDataarray] = useState([]);
-  // const [currentPosts, setCurrentPosts] = useState(0); // 현재
-  // const [indexOfFirstPost, setIndexOfFirstPost] = useState(0); // 처음 포스트
-  // const [indexOfLastPost, setIndexOfLastPost] = useState(0); // 마지막 포스트
-  // const [currentpage, setCurrentpage] = useState(1); //현재페이지
-  // const [postPerPage] = useState(2); //페이지당 아이템 개수
-  // const [count, setCount] = useState(0);
-  // const query = search === "" ? "" : `&search=${search}`;
 
-  // const url = `https://newsapi.org/v2/everything?q=${search}&from=2023-02-01&sortBy=popularity&apiKey=dc5d90593807448a8ac39ac9a3571a51`;
-  const url = `https://newsapi.org/v2/everything?q=${search}&from=2023-02-01&sortBy=popularity&apiKey=41a85db10eab456d8e732c5685e33b2a`;
+  // const url = `https://newsapi.org/v2/everything?q=${search}&from=2023-02-01&sortBy=popularity&apiKey=41a85db10eab456d8e732c5685e33b2a`;
   
   const onSearch = (e) => {
     setSearchresult(false);
     setSearch(e.target.value);
-    console.log("로딩값",loading);
-    console.log("서치값",search);
-    console.log("결과값",searchresult);
   };
   
   //검색엔진버튼 눌러서 화면전환
   const SearchEnd = () => {
     //alert창이 떠서 처리해줌.
     setLoading(null);
-    console.log("로딩값",loading);
     setResult([]);
   }
   const inputEnter = (e) => {
-    if(e.key =='Enter'){
+    if(e.key ==='Enter'){
       NewsShow();
     }
   }
-  
-  // useEffect(() => {
     const NewsShow = 
-    // async
      () => {
-      
-      setSearchresult(true);
-      console.log("결과값",searchresult);
-      // APi 호출 시간동안 보여줄 로딩바
-      setLoading(true);
-      
-      // divStyle.current.style = 'display:inline;'
-      // console.log(divStyle.current.style.display);
-      // try catch문 에러 처리
-      try {
-        console.log('길이',dummy.data.length);
-        console.log('결과',dataarray);
-        for (let i = 0; i < dummy.data.length; i ++){
-          console.log('확인',i);
-        if(dummy.data[i].description.includes(search) === true) 
-        setDataarray( [...dataarray, dummy.data[i]])
-        
-        
-        setResult(dataarray);
+       //  setSearchresult(true);
+       // APi 호출 시간동안 보여줄 로딩바
+       setLoading(true);
+       try {
+         for (let i = 0; i < dummy.data.length; i ++){
+           if(dummy.data[i].description.includes(search) === true) 
+           setDataarray( [...dataarray, dummy.data[i]])
+           console.log('데이터길이',dataarray);
+          console.log('길이',dataarray);
+          setResult(dataarray);
       }
-        //***************얘를 배열에 추가하는걸 찾기 */
-
-
-        // const res = await axios({
-        //   method: "get",
-        //   url: url,
-        // });
-
-        // setCurrentPosts(
-          //   res.data.articles?.slice(indexOfFirstPost, indexOfLastPost)
-          // );
-          // // setCount(res.data.articles?.length);
-          // setCurrentPosts(
-            //   res.data.articles?.slice(indexOfFirstPost, indexOfLastPost)
-            // );
-            // setIndexOfLastPost(currentpage * postPerPage); // 마지막 페이지의 개수 (한화면에 보여줄 마지막 페이지)
-      // setIndexOfFirstPost(indexOfLastPost - postPerPage); // 아이템의 첫번째 위치
-      // console.log(res.data.articles?.slice(indexOfFirstPost, indexOfLastPost))
     } catch (e) {
-      // console.log(e);
+      console.log(e);
     }
     setLoading(false);
   };
-  
-  //   NewsShow();
-  // }, []);
-  // weatherShow();
-  // });
 
   // 대기 중
   if (loading) {
@@ -403,9 +329,7 @@ export default function SearchNewsData() {
                 <Search type="text" placeholder="Search..." onChange={onSearch} onKeyPress={inputEnter} autoFocus/>
                 <SearchBtn onClick={NewsShow}>검색</SearchBtn>
           </Searchdiv>
-                {/* <SearchBtn onClick={stylechange}>올라가자</SearchBtn> */}
             {result.length !== 0 ?
-            // '' :
             <NewsItemBlock>
                 <LogoIcon src={Icon} alt="icon" />
                 <NewsText>News 검색결과</NewsText>
@@ -418,7 +342,9 @@ export default function SearchNewsData() {
                       ))}
                   </div>
                   </SearchNewsItemBlock>
-            </NewsItemBlock> : loading !== null && searchresult !== false ?
+            </NewsItemBlock>
+            :
+            loading !== null && searchresult !== false ?
             alert('검색 결과가 없습니다.') 
             : ''
             }
